@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<style>:root{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Uzávěrka táborů 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --color-surface: oklch(0.975 0.004 80);
+  --color-surface-elevated: oklch(0.995 0.003 80);
+  --color-surface-elevated-2: oklch(0.95 0.01 80);
+  --color-on-surface: oklch(0.23 0.015 260);
+  --color-on-surface-muted: oklch(0.44 0.015 260);
+  --color-on-surface-subtle: oklch(0.56 0.012 260);
+  --color-border: oklch(0.89 0.006 260);
+  --color-border-strong: oklch(0.80 0.010 260);
+  --color-accent: oklch(0.55 0.2 260);
+  --color-accent-fg: oklch(0.99 0 0);
+  --color-accent-tint: color-mix(in oklab, var(--color-accent) 8%, transparent);
+  --color-positive: oklch(0.52 0.11 155);
+  --color-negative: oklch(0.53 0.16 27);
+  --color-warning: oklch(0.60 0.13 75);
+  --color-ring: var(--color-accent);
+  --series-plan: oklch(0.60 0.11 62);
+  --series-real: oklch(0.50 0.14 250);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --color-surface: oklch(0.19 0.012 260);
+    --color-surface-elevated: oklch(0.23 0.014 260);
+    --color-surface-elevated-2: oklch(0.28 0.016 260);
+    --color-on-surface: oklch(0.94 0.005 260);
+    --color-on-surface-muted: oklch(0.76 0.010 260);
+    --color-on-surface-subtle: oklch(0.62 0.012 260);
+    --color-border: oklch(0.33 0.014 260);
+    --color-border-strong: oklch(0.44 0.016 260);
+    --color-accent: oklch(0.68 0.15 260);
+    --color-accent-fg: oklch(0.16 0.01 260);
+    --color-positive: oklch(0.70 0.13 155);
+    --color-negative: oklch(0.68 0.15 27);
+    --color-warning: oklch(0.75 0.13 75);
+    --series-plan: oklch(0.66 0.13 62);
+    --series-real: oklch(0.62 0.14 250);
+  }
+}
+:root[data-theme="dark"]{
+  --color-surface: oklch(0.19 0.012 260);
+  --color-surface-elevated: oklch(0.23 0.014 260);
+  --color-surface-elevated-2: oklch(0.28 0.016 260);
+  --color-on-surface: oklch(0.94 0.005 260);
+  --color-on-surface-muted: oklch(0.76 0.010 260);
+  --color-on-surface-subtle: oklch(0.62 0.012 260);
+  --color-border: oklch(0.33 0.014 260);
+  --color-border-strong: oklch(0.44 0.016 260);
+  --color-accent: oklch(0.68 0.15 260);
+  --color-accent-fg: oklch(0.16 0.01 260);
+  --color-positive: oklch(0.70 0.13 155);
+  --color-negative: oklch(0.68 0.15 27);
+  --color-warning: oklch(0.75 0.13 75);
+  --series-plan: oklch(0.66 0.13 62);
+  --series-real: oklch(0.62 0.14 250);
+}
+*{box-sizing:border-box}
+body{background:var(--color-surface);color:var(--color-on-surface);
+  font:400 14px/1.6 "Public Sans",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Brockmann","Public Sans",system-ui,sans-serif;
+  line-height:1.12;letter-spacing:-0.018em;font-weight:600;margin:0}
+.num,td.num,th.num{font-family:"Geist Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+:where(a,button,input,summary,[tabindex]):focus-visible{outline:2px solid var(--color-ring);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.wrap{max-width:1020px;margin:0 auto;padding:32px 20px 64px}
+
+.page-header{border-bottom:1px solid var(--color-border);padding-bottom:20px;margin-bottom:26px}
+.module-badge{display:inline-block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  font-weight:600;color:var(--color-accent);border-left:2px solid var(--color-accent);
+  padding-left:8px;margin-bottom:10px}
+h1{font-size:clamp(25px,4.4vw,35px)}
+.page-header>p{color:var(--color-on-surface-muted);margin:9px 0 0;max-width:68ch;font-size:15px}
+.info-strip{display:flex;flex-wrap:wrap;margin-top:15px;border:1px solid var(--color-border);
+  background:var(--color-surface-elevated)}
+.info-strip div{padding:7px 13px;font-size:12.5px;color:var(--color-on-surface-muted);
+  border-right:1px solid var(--color-border)}
+.info-strip div:last-child{border-right:none}
+.info-strip strong{color:var(--color-on-surface);font-weight:600}
+
+section{margin-top:34px}
+h2{font-size:21px;margin-bottom:4px}
+h3{font-size:15px}
+.sub{color:var(--color-on-surface-subtle);font-size:13.5px;margin:0 0 15px;max-width:74ch}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--color-border);
+  background:var(--color-surface-elevated)}
+.kpi{padding:15px 16px;border-right:1px solid var(--color-border)}
+.kpi:last-child{border-right:none}
+.kpi.is-primary{background:var(--color-accent-tint);border-left:3px solid var(--color-accent)}
+.kpi .label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--color-on-surface-subtle);font-weight:600}
+.kpi .value{font-family:"Geist Mono",monospace;font-variant-numeric:tabular-nums;
+  font-size:clamp(19px,3.2vw,26px);font-weight:500;margin-top:6px;letter-spacing:-.02em}
+.kpi .hint{font-size:12px;color:var(--color-on-surface-subtle);margin-top:5px;line-height:1.45}
+.pos{color:var(--color-positive)}.neg{color:var(--color-negative)}.warn{color:var(--color-warning)}
+
+/* kalkulacka */
+.calc{border:1px solid var(--color-border);background:var(--color-surface-elevated)}
+.calc-row{border-bottom:1px solid var(--color-border)}
+.calc-row:last-of-type{border-bottom:none}
+details>summary{list-style:none;cursor:pointer;padding:12px 15px;display:grid;
+  grid-template-columns:1fr 104px 104px 130px 22px;gap:10px;align-items:center;min-height:44px}
+details>summary::-webkit-details-marker{display:none}
+details>summary:hover{background:var(--color-surface-elevated-2)}
+summary .cat{font-weight:600;font-size:14px}
+summary .cat small{display:block;font-weight:400;font-size:11.5px;
+  color:var(--color-on-surface-subtle);letter-spacing:0;margin-top:1px}
+summary .n{font-family:"Geist Mono",monospace;font-variant-numeric:tabular-nums;
+  text-align:right;font-size:13px;color:var(--color-on-surface-muted)}
+summary .dop{text-align:right}
+summary .dop input{font:inherit;font-family:"Geist Mono",monospace;font-variant-numeric:tabular-nums;
+  width:112px;padding:6px 8px;min-height:36px;text-align:right;border-radius:2px;
+  border:1px solid var(--color-border-strong);background:var(--color-surface);color:var(--color-on-surface)}
+.chev{color:var(--color-on-surface-subtle);font-size:11px;text-align:center;transition:transform .12s}
+details[open] .chev{transform:rotate(90deg)}
+.detail{padding:0 15px 13px 15px;background:var(--color-surface-elevated-2)}
+.detail table{margin-top:2px}
+.detail thead th{background:transparent;border-bottom:1px solid var(--color-border-strong)}
+.detail input{font:inherit;font-family:"Geist Mono",monospace;font-variant-numeric:tabular-nums;
+  width:96px;padding:4px 7px;min-height:32px;text-align:right;border-radius:2px;
+  border:1px solid var(--color-border-strong);background:var(--color-surface);color:var(--color-on-surface)}
+.calc-foot{display:grid;grid-template-columns:1fr 104px 104px 130px 22px;gap:10px;
+  padding:12px 15px;background:var(--color-accent-tint);border-top:2px solid var(--color-accent);
+  align-items:center;font-weight:600}
+.calc-foot .n{font-family:"Geist Mono",monospace;font-variant-numeric:tabular-nums;text-align:right;font-size:13px}
+.calc-head{display:grid;grid-template-columns:1fr 104px 104px 130px 22px;gap:10px;padding:9px 15px;
+  background:var(--color-surface-elevated-2);border-bottom:1px solid var(--color-border-strong);
+  font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--color-on-surface-subtle);font-weight:600}
+.calc-head span:not(:first-child){text-align:right}
+.seg{display:inline-flex;border:1px solid var(--color-border-strong);background:var(--color-surface);flex-wrap:wrap}
+.seg button{font:inherit;font-size:13px;padding:7px 13px;background:transparent;
+  color:var(--color-on-surface-muted);border:none;border-right:1px solid var(--color-border);
+  cursor:pointer;border-radius:0;min-height:36px}
+.seg button:last-child{border-right:none}
+.seg button:hover{background:var(--color-surface-elevated-2)}
+.seg button[aria-pressed="true"]{background:var(--color-accent);color:var(--color-accent-fg);font-weight:600}
+
+.scroll{overflow-x:auto;border:1px solid var(--color-border);background:var(--color-surface-elevated)}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:13.5px}
+th,td{padding:8px 12px;text-align:right;border-bottom:1px solid var(--color-border);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--color-on-surface-subtle);
+  font-weight:600;background:var(--color-surface-elevated-2);border-bottom:1px solid var(--color-border-strong)}
+tbody tr:last-child td{border-bottom:none}
+tr.sum td{font-weight:600;background:var(--color-surface-elevated-2);border-top:1px solid var(--color-border-strong)}
+tr.grand td{font-weight:600;background:var(--color-accent-tint);border-top:2px solid var(--color-accent)}
+tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
+.subtle{color:var(--color-on-surface-subtle)}
+.tag{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;
+  padding:2px 6px;border-radius:2px;white-space:nowrap}
+.tag.done{background:color-mix(in oklab,var(--color-positive) 14%,transparent);color:var(--color-positive)}
+.tag.wait{background:color-mix(in oklab,var(--color-warning) 16%,transparent);color:var(--color-warning)}
+.tag.gone{background:color-mix(in oklab,var(--color-negative) 12%,transparent);color:var(--color-negative)}
+
+.chart{border:1px solid var(--color-border);background:var(--color-surface-elevated);padding:16px 12px 10px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 12px;padding:0 4px;
+  font-size:12.5px;color:var(--color-on-surface-muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:10px;height:10px;flex:none;display:inline-block}
+svg{display:block;width:100%;height:auto}
+.gl{stroke:var(--color-border);stroke-width:1}
+.zl{stroke:var(--color-border-strong);stroke-width:1}
+.ax{fill:var(--color-on-surface-subtle);font-family:"Geist Mono",monospace;font-size:10px}
+.bl{font-family:"Geist Mono",monospace;font-size:10.5px;font-weight:500}
+.cl{fill:var(--color-on-surface-muted);font-family:"Public Sans",sans-serif;font-size:11px}
+figcaption{font-size:12.5px;color:var(--color-on-surface-subtle);margin-top:9px;line-height:1.5}
+figure{margin:0}
+
+.steps{display:grid;gap:0;border:1px solid var(--color-border);background:var(--color-surface-elevated);margin-top:14px}
+.step{display:grid;grid-template-columns:132px 1fr 118px;gap:13px;padding:11px 15px;
+  border-bottom:1px solid var(--color-border);align-items:baseline;font-size:13.5px}
+.step:last-child{border-bottom:none}
+.step.result{background:var(--color-accent-tint);font-weight:600;border-top:2px solid var(--color-accent)}
+.step .who{font-weight:600;font-size:13px}
+.step .why{color:var(--color-on-surface-muted);line-height:1.5}
+.step .amt{font-family:"Geist Mono",monospace;font-variant-numeric:tabular-nums;text-align:right}
+
+.notice{background:var(--color-surface-elevated);border:1px solid var(--color-border);
+  border-left:3px solid var(--color-accent);padding:14px 16px;margin-top:15px}
+.notice.flag{border-left-color:var(--color-warning)}
+.notice.bad{border-left-color:var(--color-negative)}
+.notice p{margin:0;font-size:14px;color:var(--color-on-surface-muted)}
+.notice p+p{margin-top:8px}
+.notice strong{color:var(--color-on-surface);font-weight:600}
+.notice h3{margin-bottom:6px}
+
+ul.findings{margin:0;padding:0;list-style:none}
+ul.findings li{padding:11px 0;border-bottom:1px solid var(--color-border);
+  color:var(--color-on-surface-muted);font-size:14px;line-height:1.55}
+ul.findings li:last-child{border-bottom:none}
+ul.findings strong{color:var(--color-on-surface);font-weight:600}
+
+footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border);
+  color:var(--color-on-surface-subtle);font-size:12.5px;line-height:1.6}
+@media(max-width:760px){
+  .kpi-grid{grid-template-columns:1fr}
+  .kpi{border-right:none;border-bottom:1px solid var(--color-border)}
+  details>summary,.calc-foot,.calc-head{grid-template-columns:1fr 92px 118px 20px}
+  details>summary .n.plan,.calc-foot .n.plan,.calc-head span.plan{display:none}
+  .step{grid-template-columns:1fr;gap:3px}
+  .step .amt{text-align:left}
+}
+</style>
+
+<div class="wrap">
+
+<header class="page-header">
+  <div class="module-badge">CFO → CEO</div>
+  <h1>Uzávěrka táborů 2026</h1>
+  <p>Sedm táborových lokací a jedno společné středisko. Vstupné je uzavřené — víc už nepřijde.
+  Odvody, interní fakturace i mzdy jsou hotové. Chybí jen doklady na část nákladů a jedna
+  partnerská faktura; kolik z toho započítat, si nastavíš níže.</p>
+  <div class="info-strip">
+    <div>Zdroj: <strong>LuDone / Tabidoo</strong></div>
+    <div>Prodeje: <strong>SimpleShop</strong></div>
+    <div>Stav k <strong>31. 8. 2026</strong></div>
+    <div>Vstupné: <strong>uzavřeno</strong></div>
+    <div>Mzdy: <strong>potvrzené</strong></div>
+  </div>
+</header>
+
+<section>
+  <h2>Výsledek</h2>
+  <p class="sub">Účetní stav ukazuje 199 tisíc, ale nezahrnuje náklady bez dokladů ani nevyfakturovaného
+  partnera. Po dopočtu vychází těsný plus.</p>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Plán</div>
+      <div class="value pos">+390 945</div>
+      <div class="hint">Rozpočtovaný výsledek osmi projektů.</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Došlé doklady</div>
+      <div class="value pos">+199 024</div>
+      <div class="hint">Účetní stav k dnešku.</div>
+    </div>
+    <div class="kpi is-primary">
+      <div class="label">Po dopočtu</div>
+      <div class="value pos" id="kpiFinal">+15 627</div>
+      <div class="hint" id="kpiFinalHint">Nájem plně, strava podle obsazenosti, BTL dojde.</div>
+    </div>
+  </div>
+  <div class="notice">
+    <p><strong>Věta pro rozhodnutí:</strong> tábory nejsou ztrátové, ale skončí kolem nuly.
+    Pět ze sedmi lokací překonalo plán tržeb — celý propad drží <strong>Žižkov a Plechárna</strong>.
+    Rozdíl mezi ziskem a ztrátou dnes visí na <strong>jediné nevyfakturované položce</strong>:
+    partnerovi na Robotáboru za 70 000. Bez ní je sezóna v mínusu.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Kolik ještě přijde</h2>
+  <p class="sub">Náklady, které vznikly, ale doklad nedorazil. Rozklikni kategorii a uvidíš jednotlivé
+  lokace — částky můžeš přepsat kdekoli, součet i výsledek se přepočítají.</p>
+
+  <div style="margin-bottom:13px">
+    <div class="seg" role="group" aria-label="Přednastavení">
+      <button type="button" data-scen="0" aria-pressed="false">Nic nedopočítávat</button>
+      <button type="button" data-scen="1" aria-pressed="true">Doporučený</button>
+      <button type="button" data-scen="2" aria-pressed="false">Vše na plán</button>
+    </div>
+  </div>
+
+  <div class="calc">
+    <div class="calc-head">
+      <span>Kategorie</span><span class="plan">Plán</span><span>Došlo</span><span>Dopočet</span><span></span>
+    </div>
+    <div id="calcRows"></div>
+    <div class="calc-foot">
+      <span>Dopočet celkem</span>
+      <span class="n plan"></span>
+      <span class="n"></span>
+      <span class="n" id="calcTotal">—</span>
+      <span></span>
+    </div>
+  </div>
+  <figcaption>Nájem je předvyplněný v plné výši — platí se za prostor bez ohledu na to, kolik dětí
+  přijelo. Strava je navržená podle skutečné obsazenosti každé lokace. Lektoři a materiál jsou
+  ve výchozím stavu nula, protože u nich nevíme, jestli jde o chybějící doklad, nebo skutečnou úsporu.</figcaption>
+</section>
+
+<section>
+  <h2>Jak vznikl rozdíl proti plánu</h2>
+  <p class="sub">Plán sliboval 390 945. Skončíme kolem nuly. Tady je každý krok té cesty
+  a proč se stal.</p>
+
+  <figure>
+    <div class="chart">
+      <div class="legend">
+        <span><i class="sw" style="background:var(--series-plan)"></i>Výchozí a cílový stav</span>
+        <span><i class="sw" style="background:var(--color-positive)"></i>Zvedá výsledek</span>
+        <span><i class="sw" style="background:var(--color-negative)"></i>Sráží výsledek</span>
+      </div>
+      <svg id="wf" viewBox="0 0 900 320" role="img" aria-labelledby="wfTitle">
+        <title id="wfTitle">Vodopádový graf od plánu k dopočtenému výsledku</title>
+      </svg>
+    </div>
+    <figcaption>Poslední tři sloupce se mění podle nastavení kalkulačky výše.</figcaption>
+  </figure>
+
+  <div class="steps">
+    <div class="step">
+      <span class="who">Plán</span>
+      <span class="why">S čím se do sezóny šlo.</span>
+      <span class="amt">390 945</span>
+    </div>
+    <div class="step">
+      <span class="who neg">Tržby −770 774</span>
+      <span class="why">Neprodalo se, co se čekalo. <strong>Žižkov 43 míst místo 140</strong>,
+        Plechárna 64 místo 104. Ostatních pět lokací plán překonalo, ale ztrátu těch dvou nedohnaly.
+        Sem patří i partner, který zatím nefakturoval.</span>
+      <span class="amt neg">−379 829</span>
+    </div>
+    <div class="step">
+      <span class="who pos">Provoz +489 067</span>
+      <span class="why">Když nepřijedou děti, neplatí se za ně obědy ani lektoři. Část téhle
+        „úspory" ale nejsou ušetřené peníze — jsou to <strong>doklady, které ještě nedošly</strong>.
+        Právě proto je nahoře ta kalkulačka.</span>
+      <span class="amt pos">+109 238</span>
+    </div>
+    <div class="step">
+      <span class="who neg">Mzdy −64 369</span>
+      <span class="why">Jediná položka, která přerostla rozpočet. Koordinace tábory odpracovala
+        1 217 hodin bez ohledu na to, že se jich prodalo méně — <strong>režie se s poklesem
+        prodeje nezmenšila</strong>.</span>
+      <span class="amt pos">+44 869</span>
+    </div>
+    <div class="step">
+      <span class="who pos">Odvody +154 154</span>
+      <span class="why">Vypadá to jako úspora, ale není. Odvod je 20 % z tržeb — když jsou tržby
+        nižší, odvede se míň. <strong>Táborům to výsledek zlepšilo, matce a oddělení stejnou částku
+        sebralo</strong> (77 077 každému). Firma jako celek si nepolepšila.</span>
+      <span class="amt pos">+199 024</span>
+    </div>
+    <div class="step">
+      <span class="who neg" id="stepDokladyLbl">Doklady −253 397</span>
+      <span class="why">Náklady, které vznikly, ale faktura nepřišla — hlavně nájmy a strava.
+        Nastavuješ je v kalkulačce výše.</span>
+      <span class="amt neg" id="stepDoklady">−54 373</span>
+    </div>
+    <div class="step">
+      <span class="who pos" id="stepPrijmyLbl">Dojde +70 000</span>
+      <span class="why">Partnerská faktura na Robotáboru. Vstupné už uzavřené je — odsud
+        další tržba nepřijde.</span>
+      <span class="amt pos" id="stepPrijmy">+15 627</span>
+    </div>
+    <div class="step result">
+      <span class="who">Výsledek</span>
+      <span class="why">Po dopočtu všeho, co víme.</span>
+      <span class="amt" id="stepVysledek">+15 627</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Příjmy</h2>
+  <p class="sub">Rozdělené na to, co se prodalo za pobyt, za stravu, a co má přijít od partnerů.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Zdroj</th><th class="num">Plán</th><th class="num">Realita</th>
+        <th class="num">Rozdíl</th><th>Stav</th></tr></thead>
+      <tbody>
+        <tr><td>Vstupné <span class="subtle">· 420 míst</span></td>
+          <td class="num">3 272 680</td><td class="num">2 587 586</td>
+          <td class="num neg">−685 094</td><td><span class="tag gone">Uzavřeno</span></td></tr>
+        <tr><td>Obědy <span class="subtle">· 347 porcí</span></td>
+          <td class="num">283 200</td><td class="num">277 600</td>
+          <td class="num neg">−5 600</td><td><span class="tag done">98 % plánu</span></td></tr>
+        <tr><td>Dotace <span class="subtle">· NFSA dar</span></td>
+          <td class="num">100 000</td><td class="num">100 000</td>
+          <td class="num subtle">0</td><td><span class="tag done">Hotovo</span></td></tr>
+        <tr><td>Partneři <span class="subtle">· BTL Robotábor</span></td>
+          <td class="num">70 000</td><td class="num">0</td>
+          <td class="num neg">−70 000</td><td><span class="tag wait">Nevyfakturováno</span></td></tr>
+        <tr><td>Dopravné <span class="subtle">· Robotábor</span></td>
+          <td class="num">10 080</td><td class="num">0</td>
+          <td class="num neg">−10 080</td><td><span class="tag gone">Nebude</span></td></tr>
+        <tr class="grand"><td>Celkem</td><td class="num">3 735 960</td><td class="num">2 965 186</td>
+          <td class="num neg">−770 774</td><td><span class="subtle">79 % plánu</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice flag">
+    <p><strong>Obědy nechybí, jsou špatně zařazené.</strong> V LuDone má gastro řádka nulu, ale
+    v SimpleShopu se za stravu vybralo <strong>277 600 Kč</strong> — jen se to zaúčtovalo pod vstupné.
+    V téhle tabulce jsem to přeúčtoval zpátky, aby čísla odpovídala realitě. V Tabidoo to zatím
+    sedí jinak.</p>
+    <p>Prakticky to znamená, že <strong>propad je čistě v pobytech, ne ve stravě</strong>. Obědy
+    si koupilo 347 z 420 dětí, tedy 83 % — plán počítal skoro se stejným poměrem.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Náklady</h2>
+  <p class="sub">Podle kategorií. Poslední sloupec říká, kolik ještě čekáme podle nastavení výše.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Kategorie</th><th class="num">Plán</th><th class="num">Došlo</th>
+        <th class="num">Plnění</th><th class="num">Dopočet</th><th class="num">Celkem</th></tr></thead>
+      <tbody id="costTable"></tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Mzdy a odvody</h2>
+  <p class="sub">Dvě vrstvy, které se chovají opačně — mzdy přerostly, odvody spadly.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Položka</th><th class="num">Plán</th><th class="num">Realita</th>
+        <th class="num">Rozdíl</th><th>Dopad</th></tr></thead>
+      <tbody>
+        <tr><td>Mzdy <span class="subtle">· 1 217 h, 9 alokací</span></td>
+          <td class="num">386 810</td><td class="num">451 179</td>
+          <td class="num neg">+64 369</td><td class="subtle">Režie se s poklesem prodeje nezmenšila</td></tr>
+        <tr><td>Odvod na matku <span class="subtle">· Make more</span></td>
+          <td class="num">373 596</td><td class="num">296 519</td>
+          <td class="num pos">−77 077</td><td class="subtle">Matka dostala o 77 tis. míň</td></tr>
+        <tr><td>Odvod na firmu <span class="subtle">· MakeEducation</span></td>
+          <td class="num">373 596</td><td class="num">296 519</td>
+          <td class="num pos">−77 077</td><td class="subtle">Oddělení dostalo o 77 tis. míň</td></tr>
+        <tr class="sum"><td>Odvody celkem</td><td class="num">747 192</td><td class="num">593 038</td>
+          <td class="num pos">−154 154</td><td class="subtle">20 % z tržeb</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice bad">
+    <h3>Nižší odvod není úspora</h3>
+    <p>V tabulce vrstev vypadá −154 154 jako plus, protože táborům se snížily náklady. Ale odvod
+    je <strong>přesun peněz uvnitř firmy</strong>, ne skutečná úspora. Co tábory neodvedly,
+    to matka ani oddělení nedostaly.</p>
+    <p><strong>Pro skupinu je to nula. Pro matku a oddělení mínus 77 077 každému.</strong>
+    Tábory tedy nevydělaly víc — jen se peníze nepřesunuly tam, kde se s nimi počítalo.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Celoroční středisko</h2>
+  <p class="sub">Náklady, které nepatří jedné lokaci, a co se z odvodů zaplatilo.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Položka</th><th class="num">Plán</th><th class="num">Realita</th><th>Poznámka</th></tr></thead>
+      <tbody>
+        <tr><td>Marketing <span class="subtle">· interní fakturace Media</span></td>
+          <td class="num">600 000</td><td class="num">600 000</td>
+          <td class="subtle">Fakturováno podle plánu, ne podle reality</td></tr>
+        <tr><td>Mzdy koordinace</td><td class="num">370 300</td><td class="num">437 444</td>
+          <td class="subtle">Přes plán o 67 144</td></tr>
+        <tr><td>Spotřební materiál</td><td class="num">209 600</td><td class="num">147 775</td>
+          <td class="subtle">Nedočerpáno o 61 825</td></tr>
+        <tr><td>Produkce <span class="subtle">· interní fakturace Events</span></td>
+          <td class="num">96 000</td><td class="num">96 000</td>
+          <td class="subtle">Fakturováno podle plánu</td></tr>
+        <tr><td>SimpleShop</td><td class="num">20 000</td><td class="num">41 306</td>
+          <td class="neg">Přečerpáno dvojnásobně</td></tr>
+        <tr><td>Školení lektorů</td><td class="num">1 000</td><td class="num">9 900</td>
+          <td class="neg">Položka nebyla myšlená vážně</td></tr>
+        <tr class="grand"><td>Tábory celoroční</td><td class="num">1 313 500</td>
+          <td class="num">1 338 209</td><td class="subtle">Příjem 0 — je to nákladové středisko</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice flag">
+    <h3>Investice 252 968 do vybavení EDU</h3>
+    <p>Vedle táborů běží ještě projekt <strong>Make education Celoroční</strong>, kam tečou odvody
+    ze všech projektů oddělení. Letos se z nich pořídilo vybavení za <strong>252 968 Kč</strong>
+    — a tábory na ně přispěly 296 519 Kč, takže investice je pokrytá.</p>
+    <p><strong>Není to ale ideální konstrukce.</strong> Odvod se počítá z tržeb, takže když tábory
+    prodají míň, oddělení má rovnou míň na vybavení — přestože potřeba vybavení na počtu
+    prodaných míst nezávisí. Investice se tak plánuje z čísla, které se dozvíme až po sezóně.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Sedm lokací</h2>
+  <p class="sub">Vstupné a obědy odděleně, podle skutečně prodaných míst.</p>
+
+  <figure style="margin-bottom:16px">
+    <div class="chart">
+      <div class="legend">
+        <span><i class="sw" style="background:var(--series-plan)"></i>Plán tržeb</span>
+        <span><i class="sw" style="background:var(--series-real)"></i>Skutečnost</span>
+      </div>
+      <svg id="loc" viewBox="0 0 900 300" role="img" aria-labelledby="locTitle">
+        <title id="locTitle">Plánované a skutečné tržby po lokacích</title>
+      </svg>
+    </div>
+    <figcaption>Pět lokací plán překonalo. Žižkov zůstal na třetině a Plechárna na necelých
+    třech pětinách — dohromady jim proti rozpočtu chybí 794 tisíc, což je víc než celý
+    plánovaný zisk sezóny.</figcaption>
+  </figure>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Lokace</th><th class="num">Míst</th><th class="num">Vstupné</th>
+        <th class="num">Kč/místo</th><th class="num">Obědů</th><th class="num">Obědy Kč</th>
+        <th class="num">Plnění</th></tr></thead>
+      <tbody>
+        <tr><td>Pluhárna</td><td class="num">103</td><td class="num">509 850</td><td class="num">4 950</td>
+          <td class="num">86</td><td class="num">68 800</td><td class="num pos">109 %</td></tr>
+        <tr><td>HW Lab</td><td class="num">76</td><td class="num">455 240</td><td class="num">5 990</td>
+          <td class="num">67</td><td class="num">53 600</td><td class="num pos">112 %</td></tr>
+        <tr><td>Plechárna</td><td class="num">64</td><td class="num">383 360</td><td class="num">5 990</td>
+          <td class="num">58</td><td class="num">46 400</td><td class="num neg">59 %</td></tr>
+        <tr><td>Holešovice</td><td class="num">59</td><td class="num">382 910</td><td class="num">6 490</td>
+          <td class="num">48</td><td class="num">38 400</td><td class="num pos">103 %</td></tr>
+        <tr><td>Kumst</td><td class="num">52</td><td class="num">311 480</td><td class="num">5 990</td>
+          <td class="num">50</td><td class="num">40 000</td><td class="num pos">113 %</td></tr>
+        <tr><td>Žižkov</td><td class="num">43</td><td class="num">265 570</td><td class="num">6 176</td>
+          <td class="num">38</td><td class="num">30 400</td><td class="num neg">31 %</td></tr>
+        <tr><td>Robotábor <span class="subtle">· pobytový</span></td><td class="num">23</td>
+          <td class="num">195 270</td><td class="num">8 490</td>
+          <td class="num subtle">—</td><td class="num subtle">—</td><td class="num">98 %</td></tr>
+        <tr class="grand"><td>Celkem</td><td class="num">420</td><td class="num">2 503 680</td>
+          <td class="num">5 961</td><td class="num">347</td><td class="num">277 600</td>
+          <td class="num">79 %</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figcaption>Ceny jsou ze SimpleShopu včetně DPH (u táborů nulová). Storna: 19 objednávek
+  za 104 810 Kč. Sloupec plnění porovnává tržbu s rozpočtem lokace.</figcaption>
+</section>
+
+<section>
+  <h2>Co z toho plyne pro příští ročník</h2>
+  <ul class="findings">
+    <li><strong>Dvě lokace rozhodly celou sezónu.</strong> Žižkov prodal 43 míst z plánovaných zhruba
+    140, Plechárna 64 ze 104. Zbylých pět plán překonalo. Otázka pro 2027 není, jak zlepšit tábory,
+    ale co udělat s těmito dvěma místy.</li>
+    <li><strong>Rozpočet se staví z kapacity, ne z prodeje.</strong> U Žižkova to znamenalo plán
+    o 570 tisíc vyšší, než co trh koupil. Příští rok vyjít z loňských prodaných míst.</li>
+    <li><strong>Režie se s poklesem prodeje nezmenšila.</strong> Mzdy koordinace přerostly plán
+    o 67 tisíc, přestože se prodalo o pětinu míň. Společné středisko spolklo 1,34 milionu
+    proti 2,97 milionu tržeb.</li>
+    <li><strong>Investice EDU visí na odvodech z tržeb.</strong> Vybavení za 253 tisíc se zaplatilo,
+    ale kdyby sezóna dopadla hůř, nebylo by z čeho. Potřeba vybavení přitom na počtu prodaných
+    míst nezávisí.</li>
+    <li><strong>Doklady chodí příliš pozdě a oběma směry.</strong> Měsíc po sezóně chybí přes
+    čtvrt milionu nákladů a 70 tisíc nevyfakturovaného partnera. Dokud tyhle položky visí,
+    nikdo neví, jestli je sezóna v plusu.</li>
+    <li><strong>Rozpočtová šablona míchá vstupné a stravu.</strong> Gastro řádka ukazuje nulu,
+    přestože se vybralo 277 tisíc. Oddělit už při zakládání rozpočtu.</li>
+  </ul>
+</section>
+
+<footer>
+  <p><strong>Čemu věřit.</strong> Vstupné, obědy, odvody, interní fakturace a mzdy jsou uzavřené
+  a ověřené. Naopak <strong>fakturace Media a Events proběhla podle plánovaných částek</strong> —
+  až budou známy reálné, může se navýšit. Dopočet chybějících dokladů je odhad, ne účetní skutečnost.
+  Přeúčtování obědů z vstupného je úprava pro čtení reportu; v Tabidoo zatím sedí pod vstupným.</p>
+  <p>Zdroje: LuDone / Tabidoo (rozpočty a čerpání), SimpleShop (prodeje; type=1, uhrazené,
+  nestornované, atribuce podle product_id). Stav k 31. 8. 2026.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var BASE = 199024;
+
+  // kategorie -> lokace. plan/real z LuDone, "navrh" = doporuceny dopocet
+  var CATS = [
+    {key:"najem", label:"Nájem", note:"Platí se za prostor bez ohledu na obsazenost",
+     items:[
+      {loc:"Žižkov",     plan:80000,  real:342,    navrh:79658},
+      {loc:"Robotábor",  plan:100000, real:59500,  navrh:40500},
+      {loc:"Plechárna",  plan:54000,  real:21600,  navrh:32400},
+      {loc:"Pluhárna",   plan:20000,  real:0,      navrh:20000},
+      {loc:"HW Lab",     plan:30000,  real:20000,  navrh:10000},
+      {loc:"Holešovice", plan:40000,  real:33540,  navrh:6460},
+      {loc:"Kumst",      plan:10,     real:0,      navrh:10}
+     ]},
+    {key:"strava", label:"Strava", note:"Obědy a svačiny — návrh podle skutečné obsazenosti",
+     items:[
+      {loc:"HW Lab",     plan:48600, real:12518,  navrh:36082},
+      {loc:"Robotábor",  plan:9600,  real:0,      navrh:9437},
+      {loc:"Žižkov",     plan:97200, real:21362,  navrh:8964},
+      {loc:"Pluhárna",   plan:47520, real:42910,  navrh:7661},
+      {loc:"Kumst",      plan:32400, real:40180,  navrh:1631},
+      {loc:"Holešovice", plan:44100, real:47957,  navrh:594},
+      {loc:"Plechárna",  plan:61800, real:42631,  navrh:0}
+     ]},
+    {key:"lektori", label:"Lektoři", note:"Nejisté — může jít o úsporu, ne o chybějící doklad",
+     items:[
+      {loc:"Žižkov",     plan:144000, real:55201,  navrh:0},
+      {loc:"Holešovice", plan:72000,  real:59752,  navrh:0},
+      {loc:"Kumst",      plan:47991,  real:44800,  navrh:0},
+      {loc:"Robotábor",  plan:12900,  real:9900,   navrh:0},
+      {loc:"Pluhárna",   plan:96000,  real:95425,  navrh:0},
+      {loc:"HW Lab",     plan:72000,  real:78366,  navrh:0},
+      {loc:"Plechárna",  plan:96000,  real:103742, navrh:0}
+     ]},
+    {key:"material", label:"Materiál a vybavení", note:"Nejisté — nemuselo se nakoupit",
+     items:[
+      {loc:"Celoroční · spotřební",  plan:209600, real:147775, navrh:0},
+      {loc:"Robotábor · vybavení",   plan:7000,   real:0,      navrh:0},
+      {loc:"Celoroční · programový", plan:6600,   real:3791,   navrh:0},
+      {loc:"Robotábor · ostatní",    plan:5500,   real:3239,   navrh:0}
+     ]},
+    {key:"prijmy", label:"Příjmy, které dojdou", note:"Opačný směr — výsledek zvednou", income:true,
+     items:[
+      {loc:"Robotábor · BTL partner", plan:70000, real:0, navrh:70000}
+     ]}
+  ];
+
+  function fmt(v){var s=Math.abs(Math.round(v)).toLocaleString("cs-CZ").replace(/ /g," ");
+    return (v<0?"−":"+")+s;}
+  function plain(v){return Math.abs(Math.round(v)).toLocaleString("cs-CZ").replace(/ /g," ");}
+
+  // --- render kalkulacky ---
+  var host = document.getElementById("calcRows");
+  CATS.forEach(function(c){
+    var plan=0, real=0;
+    c.items.forEach(function(i){plan+=i.plan; real+=i.real;});
+    c.planSum=plan; c.realSum=real;
+    var d = document.createElement("details");
+    d.className="calc-row";
+    var rows = c.items.map(function(i,ix){
+      return '<tr><td>'+i.loc+'</td>'+
+        '<td class="num subtle">'+plain(i.plan)+'</td>'+
+        '<td class="num subtle">'+plain(i.real)+'</td>'+
+        '<td><input type="number" step="500" data-cat="'+c.key+'" data-ix="'+ix+'" value="'+i.navrh+'"'+
+        ' aria-label="Dopočet '+i.loc+'"></td></tr>';
+    }).join("");
+    d.innerHTML =
+      '<summary><span class="cat">'+c.label+'<small>'+c.note+'</small></span>'+
+      '<span class="n plan">'+plain(plan)+'</span>'+
+      '<span class="n">'+plain(real)+'</span>'+
+      '<span class="dop"><input type="number" step="1000" data-sum="'+c.key+'"'+
+        ' aria-label="Dopočet '+c.label+' celkem"></span>'+
+      '<span class="chev">▶</span></summary>'+
+      '<div class="detail"><table><thead><tr><th>Lokace</th><th class="num">Plán</th>'+
+      '<th class="num">Došlo</th><th class="num">Dopočet</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+    host.appendChild(d);
+  });
+
+  function itemInputs(key){
+    return Array.prototype.slice.call(document.querySelectorAll('input[data-cat="'+key+'"]'));
+  }
+  function catSum(key){
+    return itemInputs(key).reduce(function(a,el){return a+(Number(el.value)||0);},0);
+  }
+  function syncSummaries(){
+    CATS.forEach(function(c){
+      var el = document.querySelector('input[data-sum="'+c.key+'"]');
+      if(document.activeElement !== el) el.value = catSum(c.key);
+    });
+  }
+
+  function costs(){var t=0; CATS.forEach(function(c){ if(!c.income) t+=catSum(c.key); }); return t;}
+  function incomes(){var t=0; CATS.forEach(function(c){ if(c.income) t+=catSum(c.key); }); return t;}
+  function result(){ return BASE - costs() + incomes(); }
+
+  function renderCostTable(){
+    var tb = document.getElementById("costTable");
+    var rows = "";
+    var tPlan=0,tReal=0,tDop=0;
+    CATS.forEach(function(c){
+      if(c.income) return;
+      var dop = catSum(c.key), celk = c.realSum + dop;
+      tPlan+=c.planSum; tReal+=c.realSum; tDop+=dop;
+      rows += '<tr><td>'+c.label+'</td>'+
+        '<td class="num">'+plain(c.planSum)+'</td>'+
+        '<td class="num">'+plain(c.realSum)+'</td>'+
+        '<td class="num">'+Math.round(100*c.realSum/c.planSum)+' %</td>'+
+        '<td class="num '+(dop?'neg':'subtle')+'">'+(dop?"+"+plain(dop):"—")+'</td>'+
+        '<td class="num">'+plain(celk)+'</td></tr>';
+    });
+    rows += '<tr class="grand"><td>Celkem</td><td class="num">'+plain(tPlan)+'</td>'+
+      '<td class="num">'+plain(tReal)+'</td>'+
+      '<td class="num">'+Math.round(100*tReal/tPlan)+' %</td>'+
+      '<td class="num '+(tDop?'neg':'subtle')+'">'+(tDop?"+"+plain(tDop):"—")+'</td>'+
+      '<td class="num">'+plain(tReal+tDop)+'</td></tr>';
+    tb.innerHTML = rows;
+  }
+
+  // ---- vodopad ----
+  function drawWaterfall(){
+    var steps = [
+      {l:"Plán",     d:390945,    t:"anchor"},
+      {l:"Tržby",    d:-770774,   t:"s"},
+      {l:"Provoz",   d:489067,    t:"s"},
+      {l:"Mzdy",     d:-64369,    t:"s"},
+      {l:"Odvody",   d:154154,    t:"s"},
+      {l:"Dnes",     d:0,         t:"mid"},
+      {l:"Doklady",  d:-costs(),  t:"s"},
+      {l:"Dojde",    d:incomes(), t:"s"},
+      {l:"Výsledek", d:0,         t:"end"}
+    ];
+    var run=0, bars=[];
+    steps.forEach(function(s){
+      if(s.t==="anchor"){ bars.push({l:s.l,a:0,b:s.d,k:"anchor"}); run=s.d; }
+      else if(s.t==="mid"){ bars.push({l:s.l,a:0,b:run,k:"mid"}); }
+      else if(s.t==="end"){ bars.push({l:s.l,a:0,b:run,k:"end"}); }
+      else { var n=run+s.d; bars.push({l:s.l,a:run,b:n,k:s.d>=0?"up":"down"}); run=n; }
+    });
+    var lo=0,hi=0;
+    bars.forEach(function(b){lo=Math.min(lo,b.a,b.b);hi=Math.max(hi,b.a,b.b);});
+    var pad=Math.max((hi-lo)*0.14,45000); lo-=pad; hi+=pad;
+    var T=26,H=228,W=900,L=64,R=18;
+    function y(v){return T+(hi-v)/(hi-lo)*H;}
+    var p=['<title id="wfTitle">Vodopádový graf od plánu k dopočtenému výsledku</title>'];
+    for(var i=0;i<5;i++){
+      var tv=hi-(hi-lo)*i/4, ty=y(tv);
+      p.push('<line class="gl" x1="'+L+'" y1="'+ty.toFixed(1)+'" x2="'+(W-R)+'" y2="'+ty.toFixed(1)+'"/>');
+      p.push('<text class="ax" x="'+(L-8)+'" y="'+(ty+3.5).toFixed(1)+'" text-anchor="end">'+
+        (tv<0?"−":"")+Math.round(Math.abs(tv)/1000)+'k</text>');
+    }
+    p.push('<line class="zl" x1="'+L+'" y1="'+y(0).toFixed(1)+'" x2="'+(W-R)+'" y2="'+y(0).toFixed(1)+'"/>');
+    var n=bars.length, slot=(W-L-R)/n, bw=Math.min(slot*0.6,58);
+    bars.forEach(function(b,ix){
+      var cx=L+slot*ix+slot/2, x=cx-bw/2;
+      var yA=y(b.a), yB=y(b.b), top=Math.min(yA,yB), h=Math.max(Math.abs(yB-yA),2);
+      var fill = b.k==="anchor" ? "var(--series-plan)"
+               : b.k==="mid"    ? "var(--series-real)"
+               : b.k==="end"    ? (b.b>=0?"var(--color-positive)":"var(--color-negative)")
+               : b.k==="up"     ? "var(--color-positive)" : "var(--color-negative)";
+      p.push('<rect x="'+x.toFixed(1)+'" y="'+top.toFixed(1)+'" width="'+bw.toFixed(1)+
+        '" height="'+h.toFixed(1)+'" fill="'+fill+'"/>');
+      var delta = (b.k==="s"||b.k==="up"||b.k==="down") ? (b.b-b.a) : b.b;
+      var above = b.b>=b.a;
+      var ly = above ? top-6 : top+h+12;
+      var col = b.k==="anchor"||b.k==="mid" ? "var(--color-on-surface)"
+              : (delta>=0?"var(--color-positive)":"var(--color-negative)");
+      p.push('<text class="bl" x="'+cx.toFixed(1)+'" y="'+ly.toFixed(1)+
+        '" text-anchor="middle" fill="'+col+'">'+fmt(delta)+'</text>');
+      p.push('<text class="cl" x="'+cx.toFixed(1)+'" y="'+(T+H+28)+'" text-anchor="middle">'+b.l+'</text>');
+    });
+    var svg=document.getElementById("wf");
+    svg.setAttribute("viewBox","0 0 "+W+" "+(T+H+42));
+    svg.innerHTML=p.join("");
+  }
+
+  // ---- lokace: plan vs skutecnost (staticky) ----
+  function drawLocations(){
+    var L0=[
+      {n:"Pluhárna",  plan:626400, real:681530},
+      {n:"HW Lab",    plan:469680, real:525691},
+      {n:"Holešovice",plan:423000, real:434734},
+      {n:"Kumst",     plan:313120, real:352678},
+      {n:"Robotábor", plan:283840, real:279160},
+      {n:"Plechárna", plan:680560, real:398577},
+      {n:"Žižkov",    plan:939360, real:292819}
+    ];
+    var W=900, L=96, R=64, T=14, rowH=34, gap=5;
+    var H = L0.length*rowH + T + 26;
+    var max = 0; L0.forEach(function(d){max=Math.max(max,d.plan,d.real);});
+    max = Math.ceil(max/100000)*100000;
+    function x(v){ return L + v/max*(W-L-R); }
+    var p=['<title id="locTitle">Plánované a skutečné tržby po lokacích</title>'];
+    for(var g=0; g<=max; g+=200000){
+      p.push('<line class="gl" x1="'+x(g).toFixed(1)+'" y1="'+T+'" x2="'+x(g).toFixed(1)+
+        '" y2="'+(T+L0.length*rowH-6)+'"/>');
+      p.push('<text class="ax" x="'+x(g).toFixed(1)+'" y="'+(T+L0.length*rowH+11)+
+        '" text-anchor="middle">'+(g/1000)+'k</text>');
+    }
+    L0.forEach(function(d,i){
+      var yTop = T + i*rowH;
+      var bh = (rowH-gap-4)/2;
+      p.push('<text class="cl" x="'+(L-9)+'" y="'+(yTop+rowH/2-1)+'" text-anchor="end">'+d.n+'</text>');
+      p.push('<rect x="'+L+'" y="'+yTop+'" width="'+(x(d.plan)-L).toFixed(1)+'" height="'+bh.toFixed(1)+
+        '" fill="var(--series-plan)"/>');
+      p.push('<rect x="'+L+'" y="'+(yTop+bh+2).toFixed(1)+'" width="'+(x(d.real)-L).toFixed(1)+
+        '" height="'+bh.toFixed(1)+'" fill="var(--series-real)"/>');
+      var pct = Math.round(100*d.real/d.plan);
+      var col = pct>=100 ? "var(--color-positive)" : (pct<70 ? "var(--color-negative)" : "var(--color-warning)");
+      p.push('<text class="bl" x="'+(W-R+8)+'" y="'+(yTop+rowH/2-1)+'" fill="'+col+'">'+pct+' %</text>');
+    });
+    var svg=document.getElementById("loc");
+    svg.setAttribute("viewBox","0 0 "+W+" "+H);
+    svg.innerHTML=p.join("");
+  }
+
+  function update(){
+    var c = costs(), i = incomes(), r = result();
+    document.getElementById("calcTotal").textContent = c ? "−"+plain(c) : "—";
+    var kpi = document.getElementById("kpiFinal");
+    kpi.textContent = fmt(r);
+    kpi.className = "value " + (r>=0?"pos":"neg");
+
+    document.getElementById("stepDokladyLbl").textContent = "Doklady "+fmt(-c);
+    document.getElementById("stepDoklady").textContent = fmt(BASE - c);
+    document.getElementById("stepPrijmyLbl").textContent = "Dojde "+fmt(i);
+    document.getElementById("stepPrijmy").textContent = fmt(r);
+    document.getElementById("stepVysledek").textContent = fmt(r);
+    document.getElementById("stepVysledek").className = "amt " + (r>=0?"pos":"neg");
+
+    renderCostTable();
+    syncSummaries();
+    drawWaterfall();
+  }
+
+  // item input -> prepocet
+  document.addEventListener("input", function(e){
+    var t = e.target;
+    if(t.dataset && t.dataset.cat){ update(); }
+    else if(t.dataset && t.dataset.sum){
+      // rozpocitej rozdil pomerne mezi lokace podle navrhu
+      var key = t.dataset.sum, want = Number(t.value)||0;
+      var c = CATS.filter(function(x){return x.key===key;})[0];
+      var base = c.items.reduce(function(a,i){return a+i.navrh;},0);
+      var ins = itemInputs(key);
+      ins.forEach(function(el,ix){
+        el.value = base ? Math.round(c.items[ix].navrh / base * want)
+                        : Math.round(want / ins.length);
+      });
+      update();
+    }
+  });
+
+  var SCEN = [
+    {name:"Nic nedopočítávat", get:function(c,i){return 0;}},
+    {name:"Doporučený",        get:function(c,i){return i.navrh;}},
+    {name:"Vše na plán",       get:function(c,i){return c.income ? i.plan : Math.max(i.plan-i.real,0);}}
+  ];
+  var btns = Array.prototype.slice.call(document.querySelectorAll(".seg button"));
+  btns.forEach(function(b){
+    b.addEventListener("click", function(){
+      var s = SCEN[Number(b.dataset.scen)];
+      CATS.forEach(function(c){
+        itemInputs(c.key).forEach(function(el,ix){ el.value = s.get(c, c.items[ix]); });
+      });
+      btns.forEach(function(x){x.setAttribute("aria-pressed", String(x===b));});
+      document.getElementById("kpiFinalHint").textContent = s.name;
+      update();
+    });
+  });
+
+  drawLocations();
+  update();
+})();
+</script>
+</body></html>
