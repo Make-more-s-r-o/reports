@@ -187,6 +187,22 @@ svg{display:block;width:100%;height:auto}
 .ax{fill:var(--color-on-surface-subtle);font-family:"Geist Mono",monospace;font-size:10px}
 .bl{font-family:"Geist Mono",monospace;font-size:10.5px;font-weight:500}
 .cl{fill:var(--color-on-surface-muted);font-family:"Public Sans",sans-serif;font-size:11px}
+/* vodorovne bary — obsazenost */
+.bars{display:grid;gap:6px}
+.barrow{display:grid;grid-template-columns:104px 1fr 132px;align-items:center;gap:12px;
+  font-size:13.5px;min-height:26px}
+.barrow .nm{font-weight:500}
+.track{background:var(--color-surface-elevated-2);height:20px;
+  border:1px solid var(--color-border);overflow:hidden}
+.fill{height:100%;background:var(--series-real);display:block}
+.fill.over{background:var(--color-positive)}
+.fill.under{background:var(--color-negative)}
+.barrow .r{text-align:right;color:var(--color-on-surface-muted);
+  font-family:"Geist Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12.5px}
+@media(max-width:640px){
+  .barrow{grid-template-columns:80px 1fr 106px;gap:8px;font-size:12.5px}
+  .barrow .r{font-size:11px}
+}
 figcaption{font-size:12.5px;color:var(--color-on-surface-subtle);margin-top:9px;line-height:1.5}
 figure{margin:0}
 
@@ -644,21 +660,40 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
 
 <section>
   <h2>Obsazenost po lokacích</h2>
-  <p class="sub">Nejtvrdší číslo celé sezóny. Pět lokací prodalo, co mělo, nebo víc.</p>
+  <p class="sub">Nejtvrdší číslo celé sezóny. Tři lokace plán překonaly, Robotábor ho přesně
+  naplnil, Holešovice těsně minula — a dvě zůstaly hluboko pod ním.</p>
   <div class="chart">
-    <div class="legend"><span><i class="sw" style="background:var(--series-real)"></i>Obsazenost</span></div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--color-positive)"></i>Nad plánem</span>
+      <span><i class="sw" style="background:var(--series-real)"></i>Podle plánu</span>
+      <span><i class="sw" style="background:var(--color-negative)"></i>Pod plánem</span>
+    </div>
     <div class="bars">
-      <div class="barrow"><span>Kumst</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="r num">108 % · 52/48</span></div>
-      <div class="barrow"><span>Pluhárna</span><div class="track"><div class="fill" style="width:99%"></div></div><span class="r num">107 % · 103/96</span></div>
-      <div class="barrow"><span>HW Lab</span><div class="track"><div class="fill" style="width:98%"></div></div><span class="r num">106 % · 76/72</span></div>
-      <div class="barrow"><span>Holešovice</span><div class="track"><div class="fill" style="width:91%"></div></div><span class="r num">98 % · 59/60</span></div>
-      <div class="barrow"><span>Robotábor</span><div class="track"><div class="fill" style="width:93%"></div></div><span class="r num">100 % · 24/24</span></div>
-      <div class="barrow"><span>Plechárna</span><div class="track"><div class="fill" style="width:57%"></div></div><span class="r num">62 % · 64/104</span></div>
-      <div class="barrow"><span>Žižkov</span><div class="track"><div class="fill" style="width:29%"></div></div><span class="r num">31 % · 43/140</span></div>
+      <div class="barrow"><span class="nm">Kumst</span>
+        <div class="track"><span class="fill over" style="width:100%"></span></div>
+        <span class="r">108 % · 52 z 48</span></div>
+      <div class="barrow"><span class="nm">Pluhárna</span>
+        <div class="track"><span class="fill over" style="width:99%"></span></div>
+        <span class="r">107 % · 103 z 96</span></div>
+      <div class="barrow"><span class="nm">HW Lab</span>
+        <div class="track"><span class="fill over" style="width:98%"></span></div>
+        <span class="r">106 % · 76 z 72</span></div>
+      <div class="barrow"><span class="nm">Robotábor</span>
+        <div class="track"><span class="fill" style="width:93%"></span></div>
+        <span class="r">100 % · 24 z 24</span></div>
+      <div class="barrow"><span class="nm">Holešovice</span>
+        <div class="track"><span class="fill" style="width:91%"></span></div>
+        <span class="r">98 % · 59 z 60</span></div>
+      <div class="barrow"><span class="nm">Plechárna</span>
+        <div class="track"><span class="fill under" style="width:57%"></span></div>
+        <span class="r">62 % · 64 ze 104</span></div>
+      <div class="barrow"><span class="nm">Žižkov</span>
+        <div class="track"><span class="fill under" style="width:29%"></span></div>
+        <span class="r">31 % · 43 ze 140</span></div>
     </div>
   </div>
-  <figcaption>Vpravo obsazenost a poměr prodaných míst k plánovaným. Žižkov měl podle rozpočtu
-  prodat 140 míst — to je nejvíc ze všech lokací, přestože jde o nejmenší prodej v realitě.</figcaption>
+  <figcaption>Délka pruhu odpovídá obsazenosti, vpravo procento a prodaná místa proti plánovaným.
+  Žižkov měl podle rozpočtu prodat 140 míst — nejvíc ze všech lokací, přestože skončil nejníž.</figcaption>
 </section>
 
 <section>
