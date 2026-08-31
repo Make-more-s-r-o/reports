@@ -253,40 +253,42 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
 <section>
   <h2>Výsledek</h2>
   <p class="sub">Účetní stav ukazuje 199 tisíc, ale nezahrnuje náklady bez dokladů ani nevyfakturovaného
-  partnera. Po dopočtu vychází těsný plus.</p>
+  partnera. Očekávaná bilance vychází na těsný plus.</p>
   <div class="kpi-grid">
     <div class="kpi">
-      <div class="label">Plán</div>
+      <div class="label">Rozpočtová bilance</div>
       <div class="value pos">+390 945</div>
       <div class="hint">Rozpočtovaný výsledek osmi projektů.</div>
     </div>
     <div class="kpi">
-      <div class="label">Došlé doklady</div>
+      <div class="label">Reálná bilance</div>
       <div class="value pos">+199 024</div>
       <div class="hint">Účetní stav k dnešku.</div>
     </div>
     <div class="kpi is-primary">
-      <div class="label">Po dopočtu</div>
+      <div class="label">Očekávaná bilance</div>
       <div class="value pos" id="kpiFinal">+15 627</div>
       <div class="hint" id="kpiFinalHint">Nájem plně, strava podle obsazenosti, BTL dojde.</div>
     </div>
   </div>
+  <p class="sub" style="margin-top:12px">Očekávaná bilance je reálná bilance plus všechno, o čem víme,
+  že ještě přijde — na obou stranách; není to účetní číslo, ale odhad, kam se výsledek dostane.</p>
   <div class="notice">
     <p><strong>Věta pro rozhodnutí:</strong> tábory nejsou ztrátové, ale skončí kolem nuly.
-    Pět ze sedmi lokací překonalo plán tržeb — celý propad drží <strong>Žižkov a Plechárna</strong>.
+    Pět ze sedmi lokací plán naplnilo (98–113 %) — celý propad drží <strong>Žižkov a Plechárna</strong>.
     Rozdíl mezi ziskem a ztrátou dnes visí na <strong>jediné nevyfakturované položce</strong>:
     partnerovi na Robotáboru za 70 000. Bez ní je sezóna v mínusu.</p>
   </div>
 </section>
 
 <section>
-  <h2>Kolik ještě přijde</h2>
+  <h2>Čeká na doklad</h2>
   <p class="sub">Náklady, které vznikly, ale doklad nedorazil. Rozklikni kategorii a uvidíš jednotlivé
   lokace — částky můžeš přepsat kdekoli, součet i výsledek se přepočítají.</p>
 
   <div style="margin-bottom:13px">
     <div class="seg" role="group" aria-label="Přednastavení">
-      <button type="button" data-scen="0" aria-pressed="false">Nic nedopočítávat</button>
+      <button type="button" data-scen="0" aria-pressed="false">Žádný odhad</button>
       <button type="button" data-scen="1" aria-pressed="true">Doporučený</button>
       <button type="button" data-scen="2" aria-pressed="false">Vše na plán</button>
     </div>
@@ -294,11 +296,11 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
 
   <div class="calc">
     <div class="calc-head">
-      <span>Kategorie</span><span class="plan">Plán</span><span>Došlo</span><span>Dopočet</span><span></span>
+      <span>Kategorie</span><span class="plan">Plánováno</span><span>Čerpáno</span><span>Čeká na doklad</span><span></span>
     </div>
     <div id="calcRows"></div>
     <div class="calc-foot">
-      <span>Dopočet celkem</span>
+      <span>Celkem čeká na doklad</span>
       <span class="n plan"></span>
       <span class="n"></span>
       <span class="n" id="calcTotal">—</span>
@@ -331,7 +333,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
 
   <div class="steps">
     <div class="step">
-      <span class="who">Plán</span>
+      <span class="who">Rozpočtová bilance</span>
       <span class="why">S čím se do sezóny šlo.</span>
       <span class="amt">390 945</span>
     </div>
@@ -364,20 +366,20 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
       <span class="amt pos">+199 024</span>
     </div>
     <div class="step">
-      <span class="who neg" id="stepDokladyLbl">Doklady −253 397</span>
+      <span class="who neg" id="stepDokladyLbl">Čeká na doklad −253 397</span>
       <span class="why">Náklady, které vznikly, ale faktura nepřišla — hlavně nájmy a strava.
         Nastavuješ je v kalkulačce výše.</span>
       <span class="amt neg" id="stepDoklady">−54 373</span>
     </div>
     <div class="step">
-      <span class="who pos" id="stepPrijmyLbl">Dojde +70 000</span>
+      <span class="who pos" id="stepPrijmyLbl">Čeká na fakturaci +70 000</span>
       <span class="why">Partnerská faktura na Robotáboru. Vstupné už uzavřené je — odsud
         další tržba nepřijde.</span>
       <span class="amt pos" id="stepPrijmy">+15 627</span>
     </div>
     <div class="step result">
-      <span class="who">Výsledek</span>
-      <span class="why">Po dopočtu všeho, co víme.</span>
+      <span class="who">Očekávaná bilance</span>
+      <span class="why">Se vším, co dnes víme.</span>
       <span class="amt" id="stepVysledek">+15 627</span>
     </div>
   </div>
@@ -388,10 +390,10 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   <p class="sub">Rozdělené na to, co se prodalo za pobyt, za stravu, a co má přijít od partnerů.</p>
   <div class="scroll">
     <table>
-      <thead><tr><th>Zdroj</th><th class="num">Plán</th><th class="num">Realita</th>
+      <thead><tr><th>Zdroj</th><th class="num">Plánováno</th><th class="num">Realita</th>
         <th class="num">Rozdíl</th><th>Stav</th></tr></thead>
       <tbody>
-        <tr><td>Vstupné <span class="subtle">· 420 míst</span></td>
+        <tr><td>Vstupné <span class="subtle">· 421 míst</span></td>
           <td class="num">3 272 680</td><td class="num">2 587 586</td>
           <td class="num neg">−685 094</td><td><span class="tag gone">Uzavřeno</span></td></tr>
         <tr><td>Obědy <span class="subtle">· 347 porcí</span></td>
@@ -417,7 +419,8 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     V téhle tabulce jsem to přeúčtoval zpátky, aby čísla odpovídala realitě. V Tabidoo to zatím
     sedí jinak.</p>
     <p>Prakticky to znamená, že <strong>propad je čistě v pobytech, ne ve stravě</strong>. Obědy
-    si koupilo 347 z 420 dětí, tedy 83 % — plán počítal skoro se stejným poměrem.</p>
+    si koupilo 347 ze 421 dětí, tedy 82 % — <strong>plán přitom počítal jen se 65 %</strong>
+    (354 porcí na 544 míst). Ochota připlatit si za stravu je výrazně vyšší, než rozpočet čekal.</p>
   </div>
 </section>
 
@@ -426,8 +429,8 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   <p class="sub">Podle kategorií. Poslední sloupec říká, kolik ještě čekáme podle nastavení výše.</p>
   <div class="scroll">
     <table>
-      <thead><tr><th>Kategorie</th><th class="num">Plán</th><th class="num">Došlo</th>
-        <th class="num">Plnění</th><th class="num">Dopočet</th><th class="num">Celkem</th></tr></thead>
+      <thead><tr><th>Kategorie</th><th class="num">Plánováno</th><th class="num">Čerpáno</th>
+        <th class="num">Plnění</th><th class="num">Čeká na doklad</th><th class="num">Celkem</th></tr></thead>
       <tbody id="costTable"></tbody>
     </table>
   </div>
@@ -438,7 +441,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   <p class="sub">Dvě vrstvy, které se chovají opačně — mzdy přerostly, odvody spadly.</p>
   <div class="scroll">
     <table>
-      <thead><tr><th>Položka</th><th class="num">Plán</th><th class="num">Realita</th>
+      <thead><tr><th>Položka</th><th class="num">Plánováno</th><th class="num">Realita</th>
         <th class="num">Rozdíl</th><th>Dopad</th></tr></thead>
       <tbody>
         <tr><td>Mzdy <span class="subtle">· 1 217 h, 9 alokací</span></td>
@@ -470,7 +473,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   <p class="sub">Náklady, které nepatří jedné lokaci, a co se z odvodů zaplatilo.</p>
   <div class="scroll">
     <table>
-      <thead><tr><th>Položka</th><th class="num">Plán</th><th class="num">Realita</th><th>Poznámka</th></tr></thead>
+      <thead><tr><th>Položka</th><th class="num">Plánováno</th><th class="num">Realita</th><th>Poznámka</th></tr></thead>
       <tbody>
         <tr><td>Marketing <span class="subtle">· interní fakturace Media</span></td>
           <td class="num">600 000</td><td class="num">600 000</td>
@@ -516,7 +519,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <title id="locTitle">Plánované a skutečné tržby po lokacích</title>
       </svg>
     </div>
-    <figcaption>Pět lokací plán překonalo. Žižkov zůstal na třetině a Plechárna na necelých
+    <figcaption>Pět lokací plán naplnilo (98–113 %). Žižkov zůstal na třetině a Plechárna na necelých
     třech pětinách — dohromady jim proti rozpočtu chybí 794 tisíc, což je víc než celý
     plánovaný zisk sezóny.</figcaption>
   </figure>
@@ -556,7 +559,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   <h2>Co z toho plyne pro příští ročník</h2>
   <ul class="findings">
     <li><strong>Dvě lokace rozhodly celou sezónu.</strong> Žižkov prodal 43 míst z plánovaných zhruba
-    140, Plechárna 64 ze 104. Zbylých pět plán překonalo. Otázka pro 2027 není, jak zlepšit tábory,
+    140, Plechárna 64 ze 104. Zbylých pět plán naplnilo (98–113 %). Otázka pro 2027 není, jak zlepšit tábory,
     ale co udělat s těmito dvěma místy.</li>
     <li><strong>Rozpočet se staví z kapacity, ne z prodeje.</strong> U Žižkova to znamenalo plán
     o 570 tisíc vyšší, než co trh koupil. Příští rok vyjít z loňských prodaných míst.</li>
@@ -612,7 +615,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   Není to fyzická kapacita tábora, ale počet, se kterým rozpočet musel počítat, aby vyšel.</p>
   <div class="scroll">
     <table>
-      <thead><tr><th>Ukazatel</th><th class="num">Plán</th><th class="num">Realita</th>
+      <thead><tr><th>Ukazatel</th><th class="num">Plánováno</th><th class="num">Realita</th>
         <th class="num">Plnění</th><th>Jak se počítá</th></tr></thead>
       <tbody>
         <tr><td><strong>Prodaná místa</strong></td><td class="num">544</td><td class="num">421</td>
@@ -632,7 +635,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   </div>
   <div class="notice flag">
     <p><strong>Obědy překonaly plán, i když míst bylo méně.</strong> Rozpočet čekal, že si oběd
-    vezme zhruba každé druhé dítě; ve skutečnosti to bylo <strong>83 %</strong> a u Kumstu
+    vezme zhruba každé druhé dítě; ve skutečnosti to bylo <strong>82 %</strong> a u Kumstu
     dokonce 96 %. Pro příští rok to znamená dvě věci: počítat s vyšším odběrem stravy,
     a mít v rozpočtu gastro řádku, která to unese.</p>
   </div>
@@ -661,7 +664,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   <h2>Ekonomika</h2>
   <div class="scroll">
     <table>
-      <thead><tr><th>Ukazatel</th><th class="num">Plán</th><th class="num">Realita</th>
+      <thead><tr><th>Ukazatel</th><th class="num">Plánováno</th><th class="num">Realita</th>
         <th class="num">Plnění</th><th>Jak se počítá</th></tr></thead>
       <tbody>
         <tr><td>Příjmy</td><td class="num">3 735 960</td><td class="num">2 965 186</td>
@@ -682,7 +685,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   <div class="notice bad">
     <p><strong>Náklad na dítě přerostl plán o 7 %, přestože se utratilo méně peněz.</strong>
     To je aritmetika fixních nákladů: nájem, koordinace i marketing se utratily skoro celé,
-    ale rozpustily se mezi 420 dětí místo 544. Každé chybějící dítě zdraží všechny ostatní.</p>
+    ale rozpustily se mezi 421 dětí místo 544. Každé chybějící dítě zdraží všechny ostatní.</p>
   </div>
 </section>
 
@@ -692,7 +695,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   dětí, které přivedl.</p>
   <div class="scroll">
     <table>
-      <thead><tr><th>Ukazatel</th><th class="num">Plán</th><th class="num">Realita</th>
+      <thead><tr><th>Ukazatel</th><th class="num">Plánováno</th><th class="num">Realita</th>
         <th class="num">Plnění</th><th>Jak se počítá</th></tr></thead>
       <tbody>
         <tr><td>Náklad na akvizici</td><td class="num">602 000</td><td class="num">602 000</td>
@@ -709,7 +712,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   </div>
   <div class="notice flag">
     <p><strong>Rozpočet marketingu se vyčerpal na sto procent bez ohledu na výsledek.</strong>
-    Kdyby se prodalo plánovaných 544 míst, stálo by získání dítěte 1 107 Kč. Prodalo se 420,
+    Kdyby se prodalo plánovaných 544 míst, stálo by získání dítěte 1 107 Kč. Prodalo se 421,
     takže reálně 1 430 Kč — o 323 Kč víc na každé dítě.</p>
     <p>Z jedné faktury na 600 000 Kč se ale nedá poznat, <strong>co za ty peníze bylo</strong>.
     Bez rozpadu na kanály (a ideálně i na lokace) nejde říct, jestli selhala kampaň na Žižkov,
@@ -768,7 +771,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   prodaných míst; mzdy tu nejsou, protože alokace jsou přípravné a sedí na středisku.</p>
   <div class="scroll">
     <table>
-      <thead><tr><th>Ukazatel</th><th class="num">Plán</th><th class="num">Realita</th>
+      <thead><tr><th>Ukazatel</th><th class="num">Plánováno</th><th class="num">Realita</th>
         <th class="num">Na dítě</th><th>Jak se počítá</th></tr></thead>
       <tbody>
         <tr><td>Lektoři</td><td class="num">540 891</td><td class="num">447 186</td>
@@ -778,12 +781,12 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <tr><td>Nájem <span class="subtle">· zaúčtováno</span></td><td class="num">324 010</td>
           <td class="num">134 982</td><td class="num">321</td>
           <td class="subtle">Nájem ÷ místa — bez chybějících dokladů</td></tr>
-        <tr><td>Nájem <span class="subtle">· po dopočtu</span></td><td class="num">324 010</td>
+        <tr><td>Nájem <span class="subtle">· v plné výši</span></td><td class="num">324 010</td>
           <td class="num">324 010</td><td class="num">770</td>
           <td class="subtle">Když dorazí všechny faktury</td></tr>
         <tr class="sum"><td>Přímý provoz celkem</td><td class="num">1 206 121</td>
           <td class="num">978 754</td><td class="num">2 325</td>
-          <td class="subtle">Po dopočtu nájmu</td></tr>
+          <td class="subtle">S nájmem v plné výši</td></tr>
       </tbody>
     </table>
   </div>
@@ -798,7 +801,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   <h2>Přínos skupině</h2>
   <div class="scroll">
     <table>
-      <thead><tr><th>Ukazatel</th><th class="num">Plán</th><th class="num">Realita</th>
+      <thead><tr><th>Ukazatel</th><th class="num">Plánováno</th><th class="num">Realita</th>
         <th class="num">Plnění</th><th>Kam to jde</th></tr></thead>
       <tbody>
         <tr><td>Odvod na matku</td><td class="num">373 596</td><td class="num">296 519</td>
@@ -816,6 +819,43 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     <p><strong>Skupina dostala o 154 154 Kč méně, než čekala</strong> — po 77 077 Kč na každé
     straně. Táborům to snížilo náklady, ale matce ani oddělení tím nic nepřibylo. Pro skupinu
     jako celek je to nula, pro rozpočty matky a oddělení mínus.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Meziroční srovnání</h2>
+  <p class="sub">Rok 2025 dohledaný ze SimpleShopu podle produktů. Business plán uváděl
+  210 dětí v jedné tabulce a 140 v textu — data říkají 178.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Ukazatel</th><th class="num">2025</th><th class="num">2026</th>
+        <th class="num">Změna</th><th>Poznámka</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Prodaná místa</strong></td><td class="num">178</td><td class="num">421</td>
+          <td class="num pos">+137 %</td><td class="subtle">Ze 4 lokací na 7</td></tr>
+        <tr><td>Tržba za vstupné</td><td class="num">1 039 830</td><td class="num">2 512 170</td>
+          <td class="num pos">+142 %</td><td class="subtle">SimpleShop, před slevami</td></tr>
+        <tr><td>Cena za místo</td><td class="num">5 842</td><td class="num">5 967</td>
+          <td class="num">+2 %</td><td class="subtle">Objem rostl, cena skoro ne</td></tr>
+        <tr><td><strong>Zisk na dítě</strong></td><td class="num neg">−159</td>
+          <td class="num pos">+473</td><td class="num pos">obrat</td>
+          <td class="subtle">2025 z business plánu</td></tr>
+        <tr><td>Marže</td><td class="num neg">−3,2 %</td><td class="num pos">6,7 %</td>
+          <td class="num pos">+9,9 b.</td><td class="subtle">Ze ztráty do zisku</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice">
+    <p><strong>Tábory se za rok víc než ztrojnásobily a poprvé vydělaly.</strong> Objem vzrostl
+    o 137 %, cena za místo přitom jen o 2 % — růst tedy nepřišel ze zdražení, ale z počtu dětí.
+    Loni tábory na každém dítěti ztrácely 159 Kč, letos vydělaly 473 Kč.</p>
+    <p>Proti cíli z business plánu — <strong>650 dětí a 4,2 mil.</strong> — je to ale jen 65 %,
+    respektive 71 %. Ambice byla vyšší než kapacita, kterou se podařilo naplnit.</p>
+  </div>
+  <div class="notice flag">
+    <p><strong>Nové lokality selhávají dvakrát po sobě.</strong> Smíchov měl v roce 2025 tři
+    turnusy a <strong>nula rezervací</strong>. Žižkov letos prodal 43 míst ze 140 plánovaných.
+    Otevřít nové místo je zatím dražší a rizikovější než dotáhnout obsazenost tam, kde už kapacita stojí.</p>
   </div>
 </section>
 
@@ -844,7 +884,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
 <footer>
   <p><strong>Čemu věřit.</strong> Vstupné, obědy, odvody, interní fakturace a mzdy jsou uzavřené
   a ověřené. Naopak <strong>fakturace Media a Events proběhla podle plánovaných částek</strong> —
-  až budou známy reálné, může se navýšit. Dopočet chybějících dokladů je odhad, ne účetní skutečnost.
+  až budou známy reálné, může se navýšit. Náklady, které čekají na doklad, jsou odhad, ne účetní skutečnost.
   Přeúčtování obědů z vstupného je úprava pro čtení reportu; v Tabidoo zatím sedí pod vstupným.</p>
   <p>Zdroje: LuDone / Tabidoo (rozpočty a čerpání), SimpleShop (prodeje; type=1, uhrazené,
   nestornované, atribuce podle product_id). Stav k 31. 8. 2026.</p>
@@ -897,7 +937,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
       {loc:"Celoroční · programový", plan:6600,   real:3791,   navrh:0},
       {loc:"Robotábor · ostatní",    plan:5500,   real:3239,   navrh:0}
      ]},
-    {key:"prijmy", label:"Příjmy, které dojdou", note:"Opačný směr — výsledek zvednou", income:true,
+    {key:"prijmy", label:"Čeká na fakturaci", note:"Opačný směr — výsledek zvednou", income:true,
      items:[
       {loc:"Robotábor · BTL partner", plan:70000, real:0, navrh:70000}
      ]}
@@ -939,17 +979,17 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         '<td class="num subtle">'+plain(i.plan)+'</td>'+
         '<td class="num subtle">'+plain(i.real)+'</td>'+
         '<td><input type="number" step="500" data-cat="'+c.key+'" data-ix="'+ix+'" value="'+i.navrh+'"'+
-        ' aria-label="Dopočet '+i.loc+'"></td></tr>';
+        ' aria-label="Čeká na doklad '+i.loc+'"></td></tr>';
     }).join("");
     d.innerHTML =
       '<summary><span class="cat">'+c.label+'<small>'+c.note+'</small></span>'+
       '<span class="n plan">'+plain(plan)+'</span>'+
       '<span class="n">'+plain(real)+'</span>'+
       '<span class="dop"><input type="number" step="1000" data-sum="'+c.key+'"'+
-        ' aria-label="Dopočet '+c.label+' celkem"></span>'+
+        ' aria-label="Čeká na doklad '+c.label+' celkem"></span>'+
       '<span class="chev">▶</span></summary>'+
-      '<div class="detail"><table><thead><tr><th>Lokace</th><th class="num">Plán</th>'+
-      '<th class="num">Došlo</th><th class="num">Dopočet</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+      '<div class="detail"><table><thead><tr><th>Lokace</th><th class="num">Plánováno</th>'+
+      '<th class="num">Čerpáno</th><th class="num">Čeká na doklad</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
     host.appendChild(d);
   });
 
@@ -1097,9 +1137,9 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     kpi.textContent = fmt(r);
     kpi.className = "value " + (r>=0?"pos":"neg");
 
-    document.getElementById("stepDokladyLbl").textContent = "Doklady "+fmt(-c);
+    document.getElementById("stepDokladyLbl").textContent = "Čeká na doklad "+fmt(-c);
     document.getElementById("stepDoklady").textContent = fmt(BASE - c);
-    document.getElementById("stepPrijmyLbl").textContent = "Dojde "+fmt(i);
+    document.getElementById("stepPrijmyLbl").textContent = "Čeká na fakturaci "+fmt(i);
     document.getElementById("stepPrijmy").textContent = fmt(r);
     document.getElementById("stepVysledek").textContent = fmt(r);
     document.getElementById("stepVysledek").className = "amt " + (r>=0?"pos":"neg");
@@ -1128,7 +1168,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   });
 
   var SCEN = [
-    {name:"Nic nedopočítávat", get:function(c,i){return 0;}},
+    {name:"Žádný odhad", get:function(c,i){return 0;}},
     {name:"Doporučený",        get:function(c,i){return i.navrh;}},
     {name:"Vše na plán",       get:function(c,i){return c.income ? i.plan : Math.max(i.plan-i.real,0);}}
   ];
