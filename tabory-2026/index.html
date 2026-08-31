@@ -86,6 +86,17 @@ h1{font-size:clamp(25px,4.4vw,35px)}
 .info-strip div:last-child{border-right:none}
 .info-strip strong{color:var(--color-on-surface);font-weight:600}
 
+/* taby */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--color-border);margin:22px 0 0}
+.tabs button{font:inherit;font-size:14px;font-weight:600;padding:10px 18px;min-height:42px;
+  background:transparent;color:var(--color-on-surface-subtle);border:none;border-radius:0;
+  border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px}
+.tabs button:hover{color:var(--color-on-surface);background:var(--color-surface-elevated-2)}
+.tabs button[aria-selected="true"]{color:var(--color-on-surface);
+  border-bottom-color:var(--color-accent)}
+.tabs button .cnt{font-family:"Geist Mono",monospace;font-weight:400;font-size:12px;
+  color:var(--color-on-surface-subtle);margin-left:7px}
+
 section{margin-top:34px}
 h2{font-size:21px;margin-bottom:4px}
 h3{font-size:15px}
@@ -161,6 +172,10 @@ tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
 .tag.wait{background:color-mix(in oklab,var(--color-warning) 16%,transparent);color:var(--color-warning)}
 .tag.gone{background:color-mix(in oklab,var(--color-negative) 12%,transparent);color:var(--color-negative)}
 
+a.ext{color:var(--color-accent);text-decoration:underline dotted;text-underline-offset:3px}
+a.ext:hover{text-decoration-style:solid;background:var(--color-accent-tint)}
+a.ext .ext-ico{font-size:.85em}
+
 .chart{border:1px solid var(--color-border);background:var(--color-surface-elevated);padding:16px 12px 10px}
 .legend{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 12px;padding:0 4px;
   font-size:12.5px;color:var(--color-on-surface-muted)}
@@ -227,6 +242,13 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     <div>Mzdy: <strong>potvrzené</strong></div>
   </div>
 </header>
+
+<nav class="tabs" role="tablist" aria-label="Části reportu">
+  <button type="button" role="tab" data-tab="uzaverka" aria-selected="true" aria-controls="tab-uzaverka">Uzávěrka</button>
+  <button type="button" role="tab" data-tab="kpi" aria-selected="false" aria-controls="tab-kpi">Ukazatele<span class="cnt">2026</span></button>
+</nav>
+
+<div id="tab-uzaverka" role="tabpanel">
 
 <section>
   <h2>Výsledek</h2>
@@ -464,14 +486,14 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
           <td class="neg">Přečerpáno dvojnásobně</td></tr>
         <tr><td>Školení lektorů</td><td class="num">1 000</td><td class="num">9 900</td>
           <td class="neg">Položka nebyla myšlená vážně</td></tr>
-        <tr class="grand"><td>Tábory celoroční</td><td class="num">1 313 500</td>
+        <tr class="grand"><td><a class="ext" href="https://app.ludone.cz/rozpocty/makeeducation-cz/tabory-celorocni-2026" target="_blank" rel="noopener">Tábory celoroční<span class="ext-ico" aria-hidden="true"> ↗</span></a></td><td class="num">1 313 500</td>
           <td class="num">1 338 209</td><td class="subtle">Příjem 0 — je to nákladové středisko</td></tr>
       </tbody>
     </table>
   </div>
   <div class="notice flag">
     <h3>Investice 252 968 do vybavení EDU</h3>
-    <p>Vedle táborů běží ještě projekt <strong>Make education Celoroční</strong>, kam tečou odvody
+    <p>Vedle táborů běží ještě projekt <strong><a class="ext" href="https://app.ludone.cz/rozpocty/makeeducation-cz/make-education-celorocni-2026" target="_blank" rel="noopener">Make education Celoroční<span class="ext-ico" aria-hidden="true"> ↗</span></a></strong>, kam tečou odvody
     ze všech projektů oddělení. Letos se z nich pořídilo vybavení za <strong>252 968 Kč</strong>
     — a tábory na ně přispěly 296 519 Kč, takže investice je pokrytá.</p>
     <p><strong>Není to ale ideální konstrukce.</strong> Odvod se počítá z tržeb, takže když tábory
@@ -505,19 +527,19 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <th class="num">Kč/místo</th><th class="num">Obědů</th><th class="num">Obědy Kč</th>
         <th class="num">Plnění</th></tr></thead>
       <tbody>
-        <tr><td>Pluhárna</td><td class="num">103</td><td class="num">509 850</td><td class="num">4 950</td>
+        <tr><td><a class="ext" href="https://app.ludone.cz/rozpocty/maker-tabor-z-s/tabor-pluharna-2026" target="_blank" rel="noopener">Pluhárna<span class="ext-ico" aria-hidden="true"> ↗</span></a></td><td class="num">103</td><td class="num">509 850</td><td class="num">4 950</td>
           <td class="num">86</td><td class="num">68 800</td><td class="num pos">109 %</td></tr>
-        <tr><td>HW Lab</td><td class="num">76</td><td class="num">455 240</td><td class="num">5 990</td>
+        <tr><td><a class="ext" href="https://app.ludone.cz/rozpocty/maker-tabor-praha-z-s/tabor-hw-lab-2026" target="_blank" rel="noopener">HW Lab<span class="ext-ico" aria-hidden="true"> ↗</span></a></td><td class="num">76</td><td class="num">455 240</td><td class="num">5 990</td>
           <td class="num">67</td><td class="num">53 600</td><td class="num pos">112 %</td></tr>
-        <tr><td>Plechárna</td><td class="num">64</td><td class="num">383 360</td><td class="num">5 990</td>
+        <tr><td><a class="ext" href="https://app.ludone.cz/rozpocty/maker-tabor-praha-z-s/tabor-plecharna-2026" target="_blank" rel="noopener">Plechárna<span class="ext-ico" aria-hidden="true"> ↗</span></a></td><td class="num">64</td><td class="num">383 360</td><td class="num">5 990</td>
           <td class="num">58</td><td class="num">46 400</td><td class="num neg">59 %</td></tr>
-        <tr><td>Holešovice</td><td class="num">59</td><td class="num">382 910</td><td class="num">6 490</td>
+        <tr><td><a class="ext" href="https://app.ludone.cz/rozpocty/maker-tabor-praha-z-s/tabor-holesovice-2026" target="_blank" rel="noopener">Holešovice<span class="ext-ico" aria-hidden="true"> ↗</span></a></td><td class="num">59</td><td class="num">382 910</td><td class="num">6 490</td>
           <td class="num">48</td><td class="num">38 400</td><td class="num pos">103 %</td></tr>
-        <tr><td>Kumst</td><td class="num">52</td><td class="num">311 480</td><td class="num">5 990</td>
+        <tr><td><a class="ext" href="https://app.ludone.cz/rozpocty/maker-tabor-morava-z-s/tabor-kumst-2026" target="_blank" rel="noopener">Kumst<span class="ext-ico" aria-hidden="true"> ↗</span></a></td><td class="num">52</td><td class="num">311 480</td><td class="num">5 990</td>
           <td class="num">50</td><td class="num">40 000</td><td class="num pos">113 %</td></tr>
-        <tr><td>Žižkov</td><td class="num">43</td><td class="num">265 570</td><td class="num">6 176</td>
+        <tr><td><a class="ext" href="https://app.ludone.cz/rozpocty/maker-tabor-z-s/tabor-zizkov-2026" target="_blank" rel="noopener">Žižkov<span class="ext-ico" aria-hidden="true"> ↗</span></a></td><td class="num">43</td><td class="num">265 570</td><td class="num">6 176</td>
           <td class="num">38</td><td class="num">30 400</td><td class="num neg">31 %</td></tr>
-        <tr><td>Robotábor <span class="subtle">· pobytový</span></td><td class="num">23</td>
+        <tr><td><a class="ext" href="https://app.ludone.cz/rozpocty/maker-tabor-z-s/robotabor-2026" target="_blank" rel="noopener">Robotábor<span class="ext-ico" aria-hidden="true"> ↗</span></a> <span class="subtle">· pobytový</span></td><td class="num">23</td>
           <td class="num">195 270</td><td class="num">8 490</td>
           <td class="num subtle">—</td><td class="num subtle">—</td><td class="num">98 %</td></tr>
         <tr class="grand"><td>Celkem</td><td class="num">420</td><td class="num">2 503 680</td>
@@ -552,6 +574,273 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   </ul>
 </section>
 
+</div><!-- /tab-uzaverka -->
+
+<div id="tab-kpi" role="tabpanel" hidden>
+
+<section style="margin-top:26px">
+  <h2>Co sezóna říká v číslech</h2>
+  <p class="sub">Ukazatele, které chceme sledovat meziročně. Rok 2026 je první měřený, takže
+  slouží jako výchozí hodnota — porovnávat půjde od 2027.</p>
+  <div class="kpi-grid">
+    <div class="kpi is-primary">
+      <div class="label">Obsazenost</div>
+      <div class="value warn">77 %</div>
+      <div class="hint">420 prodaných z 544 míst, se kterými počítal rozpočet.</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Cena místa</div>
+      <div class="value pos">99 %</div>
+      <div class="hint">5 961 Kč proti plánovaným 6 016. Cena seděla, chyběla poptávka.</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Náklad na získané dítě</div>
+      <div class="value neg">+30 %</div>
+      <div class="hint">1 433 Kč místo plánovaných 1 107. Marketing se utratil celý.</div>
+    </div>
+  </div>
+  <div class="notice">
+    <p><strong>Jedna věta k celé sezóně:</strong> nabídka byla naceněná správně a rodiče, kteří
+    přišli, koupili i obědy. <strong>Problém byl v objemu, ne v ceně</strong> — a náklady na
+    akvizici se přitom utratily podle plánu bez ohledu na to, že se prodalo o čtvrtinu míň.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Prodej a poptávka</h2>
+  <p class="sub">Plánovaná místa jsou dopočet z rozpočtu: plánované vstupné dělené cenou místa.
+  Není to fyzická kapacita tábora, ale počet, se kterým rozpočet musel počítat, aby vyšel.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Ukazatel</th><th class="num">Plán</th><th class="num">Realita</th>
+        <th class="num">Plnění</th><th>Jak se počítá</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Prodaná místa</strong></td><td class="num">544</td><td class="num">420</td>
+          <td class="num warn">77 %</td><td class="subtle">Σ ks vstupenek, uhrazené a nestornované</td></tr>
+        <tr><td>Cena místa (ARPU)</td><td class="num">6 016</td><td class="num">5 961</td>
+          <td class="num pos">99 %</td><td class="subtle">Tržba za vstupné ÷ místa</td></tr>
+        <tr><td>Cena místa po slevách</td><td class="num subtle">—</td><td class="num">5 892</td>
+          <td class="num subtle">—</td><td class="subtle">Slevy 29 068 Kč na 112 fakturách</td></tr>
+        <tr><td>Obědů</td><td class="num">354</td><td class="num">347</td>
+          <td class="num pos">98 %</td><td class="subtle">Σ ks stravy (800 Kč/porce)</td></tr>
+        <tr><td>Podíl dětí s obědem</td><td class="num">65 %</td><td class="num">83 %</td>
+          <td class="num pos">+18 b.</td><td class="subtle">Obědů ÷ míst</td></tr>
+        <tr><td>Storna</td><td class="num subtle">—</td><td class="num">4,5 %</td>
+          <td class="num subtle">—</td><td class="subtle">19 objednávek za 104 810 Kč</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice flag">
+    <p><strong>Obědy překonaly plán, i když míst bylo méně.</strong> Rozpočet čekal, že si oběd
+    vezme zhruba každé druhé dítě; ve skutečnosti to bylo <strong>83 %</strong> a u Kumstu
+    dokonce 96 %. Pro příští rok to znamená dvě věci: počítat s vyšším odběrem stravy,
+    a mít v rozpočtu gastro řádku, která to unese.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Obsazenost po lokacích</h2>
+  <p class="sub">Nejtvrdší číslo celé sezóny. Pět lokací prodalo, co mělo, nebo víc.</p>
+  <div class="chart">
+    <div class="legend"><span><i class="sw" style="background:var(--series-real)"></i>Obsazenost</span></div>
+    <div class="bars">
+      <div class="barrow"><span>Kumst</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="r num">108 % · 52/48</span></div>
+      <div class="barrow"><span>Pluhárna</span><div class="track"><div class="fill" style="width:99%"></div></div><span class="r num">107 % · 103/96</span></div>
+      <div class="barrow"><span>HW Lab</span><div class="track"><div class="fill" style="width:98%"></div></div><span class="r num">106 % · 76/72</span></div>
+      <div class="barrow"><span>Holešovice</span><div class="track"><div class="fill" style="width:91%"></div></div><span class="r num">98 % · 59/60</span></div>
+      <div class="barrow"><span>Robotábor</span><div class="track"><div class="fill" style="width:89%"></div></div><span class="r num">96 % · 23/24</span></div>
+      <div class="barrow"><span>Plechárna</span><div class="track"><div class="fill" style="width:57%"></div></div><span class="r num">62 % · 64/104</span></div>
+      <div class="barrow"><span>Žižkov</span><div class="track"><div class="fill" style="width:29%"></div></div><span class="r num">31 % · 43/140</span></div>
+    </div>
+  </div>
+  <figcaption>Vpravo obsazenost a poměr prodaných míst k plánovaným. Žižkov měl podle rozpočtu
+  prodat 140 míst — to je nejvíc ze všech lokací, přestože jde o nejmenší prodej v realitě.</figcaption>
+</section>
+
+<section>
+  <h2>Ekonomika</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Ukazatel</th><th class="num">Plán</th><th class="num">Realita</th>
+        <th class="num">Plnění</th><th>Jak se počítá</th></tr></thead>
+      <tbody>
+        <tr><td>Příjmy</td><td class="num">3 735 960</td><td class="num">2 965 186</td>
+          <td class="num neg">79 %</td><td class="subtle">Faktury + platby z účtu bez faktury</td></tr>
+        <tr><td>Náklady</td><td class="num">3 345 015</td><td class="num">2 766 162</td>
+          <td class="num">83 %</td><td class="subtle">Včetně mezd a odvodů</td></tr>
+        <tr class="sum"><td>Bilance</td><td class="num">390 945</td><td class="num">199 024</td>
+          <td class="num neg">51 %</td><td class="subtle">Rozpočtová × reálná</td></tr>
+        <tr><td>Náklad na dítě</td><td class="num">6 149</td><td class="num">6 586</td>
+          <td class="num neg">107 %</td><td class="subtle">Náklady ÷ místa</td></tr>
+        <tr><td>Zisk na dítě</td><td class="num">719</td><td class="num">474</td>
+          <td class="num neg">66 %</td><td class="subtle">Bilance ÷ místa</td></tr>
+        <tr><td>Marže</td><td class="num">10,5 %</td><td class="num">6,7 %</td>
+          <td class="num neg">−3,8 b.</td><td class="subtle">Bilance ÷ příjmy</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice bad">
+    <p><strong>Náklad na dítě přerostl plán o 7 %, přestože se utratilo méně peněz.</strong>
+    To je aritmetika fixních nákladů: nájem, koordinace i marketing se utratily skoro celé,
+    ale rozpustily se mezi 420 dětí místo 544. Každé chybějící dítě zdraží všechny ostatní.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Akvizice</h2>
+  <p class="sub">Marketing není režie — je to náklad na získání zákazníka a měří se proti počtu
+  dětí, které přivedl.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Ukazatel</th><th class="num">Plán</th><th class="num">Realita</th>
+        <th class="num">Plnění</th><th>Jak se počítá</th></tr></thead>
+      <tbody>
+        <tr><td>Náklad na akvizici</td><td class="num">602 000</td><td class="num">602 000</td>
+          <td class="num">100 %</td><td class="subtle">Interní fakturace Make Media</td></tr>
+        <tr><td><strong>Náklad na získané dítě</strong></td><td class="num">1 107</td>
+          <td class="num">1 433</td><td class="num neg">130 %</td>
+          <td class="subtle">Akvizice ÷ prodaná místa</td></tr>
+        <tr><td>Podíl na tržbách</td><td class="num">16,1 %</td><td class="num">20,3 %</td>
+          <td class="num neg">+4,2 b.</td><td class="subtle">Akvizice ÷ příjmy</td></tr>
+        <tr><td>Návratnost akvizice</td><td class="num">5,4×</td><td class="num">4,2×</td>
+          <td class="num neg">77 %</td><td class="subtle">Cena místa ÷ náklad na dítě</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice flag">
+    <p><strong>Rozpočet marketingu se vyčerpal na sto procent bez ohledu na výsledek.</strong>
+    Kdyby se prodalo plánovaných 544 míst, stálo by získání dítěte 1 107 Kč. Prodalo se 420,
+    takže reálně 1 433 Kč — o 326 Kč víc na každé dítě.</p>
+    <p>Z jedné faktury na 600 000 Kč se ale nedá poznat, <strong>co za ty peníze bylo</strong>.
+    Bez rozpadu na kanály (a ideálně i na lokace) nejde říct, jestli selhala kampaň na Žižkov,
+    nebo jestli tam kampaň vůbec nebyla. Na příští rok je tohle první věc k opravě —
+    a marketingový report by měl být součástí uzávěrky.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Sdílené náklady</h2>
+  <p class="sub">Co všechno je v celoročním středisku. Není to režie v obvyklém smyslu —
+  většina položek má konkrétní účel a dala by se přiřadit k lokacím.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Složka</th><th class="num">Kč</th><th class="num">Na dítě</th>
+        <th class="num">% tržeb</th><th>Povaha</th></tr></thead>
+      <tbody>
+        <tr><td>Akvizice <span class="subtle">· marketing</span></td><td class="num">600 000</td>
+          <td class="num">1 429</td><td class="num">20,2 %</td>
+          <td class="subtle">Získání zákazníka — ne režie</td></tr>
+        <tr><td>Koordinace <span class="subtle">· mzdy příprav</span></td><td class="num">437 444</td>
+          <td class="num">1 042</td><td class="num">14,8 %</td>
+          <td class="subtle">Přípravné práce před sezónou</td></tr>
+        <tr><td>Programový materiál</td><td class="num">151 566</td>
+          <td class="num">361</td><td class="num">5,1 %</td>
+          <td class="subtle">Přímý náklad na program dětí</td></tr>
+        <tr><td>Produkce <span class="subtle">· Make Events</span></td><td class="num">96 000</td>
+          <td class="num">229</td><td class="num">3,2 %</td>
+          <td class="subtle">Produkční zajištění</td></tr>
+        <tr><td>Transakční <span class="subtle">· SimpleShop</span></td><td class="num">41 306</td>
+          <td class="num">98</td><td class="num">1,4 %</td>
+          <td class="subtle">Poplatky za prodej — roste s tržbou</td></tr>
+        <tr><td>Rozvoj lektorů <span class="subtle">· školení</span></td><td class="num">9 900</td>
+          <td class="num">24</td><td class="num">0,3 %</td>
+          <td class="subtle">Investice do týmu</td></tr>
+        <tr class="grand"><td>Celkem</td><td class="num">1 338 209</td>
+          <td class="num">3 186</td><td class="num">45,1 %</td>
+          <td class="subtle">Z toho skutečná režie je málo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice">
+    <p><strong>Proč „45 % režie" nic neříká.</strong> Skoro polovina té částky je marketing
+    a přípravné mzdy — obojí má konkrétní účel a dá se řídit. Programový materiál je dokonce
+    přímý náklad na dítě, který jen sedí na společném projektu. Skutečné nesnížitelné režie
+    je z těch 1,34 milionu zlomek.</p>
+    <p>Užitečnější než procento je <strong>3 186 Kč na dítě</strong> — proti ceně místa
+    5 961 Kč. Každé dítě tedy pokryje sdílené náklady a zbude 2 775 Kč na přímý provoz
+    tábora a zisk.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Přímý provoz lokací</h2>
+  <p class="sub">Náklady, které vznikají přímo na táboře. Přepočtené na dítě podle skutečně
+  prodaných míst; mzdy tu nejsou, protože alokace jsou přípravné a sedí na středisku.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Ukazatel</th><th class="num">Plán</th><th class="num">Realita</th>
+        <th class="num">Na dítě</th><th>Jak se počítá</th></tr></thead>
+      <tbody>
+        <tr><td>Lektoři</td><td class="num">540 891</td><td class="num">447 186</td>
+          <td class="num">1 065</td><td class="subtle">Lektoři ÷ místa</td></tr>
+        <tr><td>Strava</td><td class="num">341 220</td><td class="num">207 558</td>
+          <td class="num">598</td><td class="subtle">Strava ÷ strávníků (347)</td></tr>
+        <tr><td>Nájem <span class="subtle">· zaúčtováno</span></td><td class="num">324 010</td>
+          <td class="num">134 982</td><td class="num">321</td>
+          <td class="subtle">Nájem ÷ místa — bez chybějících dokladů</td></tr>
+        <tr><td>Nájem <span class="subtle">· po dopočtu</span></td><td class="num">324 010</td>
+          <td class="num">324 010</td><td class="num">771</td>
+          <td class="subtle">Když dorazí všechny faktury</td></tr>
+        <tr class="sum"><td>Přímý provoz celkem</td><td class="num">1 206 121</td>
+          <td class="num">978 754</td><td class="num">2 330</td>
+          <td class="subtle">Po dopočtu nájmu</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice">
+    <p><strong>Kontrola, která musí sedět:</strong> cena místa 5 961 − sdílené náklady 3 186
+    − přímý provoz 2 330 = <strong>445 Kč zisku na dítě</strong>. To odpovídá reálné bilanci
+    199 024 Kč rozpočítané na 420 dětí (474 Kč); rozdíl dělá dar NFSA a zaokrouhlení.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Přínos skupině</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Ukazatel</th><th class="num">Plán</th><th class="num">Realita</th>
+        <th class="num">Plnění</th><th>Kam to jde</th></tr></thead>
+      <tbody>
+        <tr><td>Odvod na matku</td><td class="num">373 596</td><td class="num">296 519</td>
+          <td class="num neg">79 %</td><td class="subtle">Make more s.r.o.</td></tr>
+        <tr><td>Odvod na firmu</td><td class="num">373 596</td><td class="num">296 519</td>
+          <td class="num neg">79 %</td><td class="subtle">MakeEducation — kryje investice EDU</td></tr>
+        <tr class="sum"><td>Celkem odvedeno</td><td class="num">747 192</td><td class="num">593 038</td>
+          <td class="num neg">79 %</td><td class="subtle">20 % z realizovaných tržeb</td></tr>
+        <tr><td>Odvod na dítě</td><td class="num">1 374</td><td class="num">1 412</td>
+          <td class="num">103 %</td><td class="subtle">Odvody ÷ místa</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice bad">
+    <p><strong>Skupina dostala o 154 154 Kč méně, než čekala</strong> — po 77 077 Kč na každé
+    straně. Táborům to snížilo náklady, ale matce ani oddělení tím nic nepřibylo. Pro skupinu
+    jako celek je to nula, pro rozpočty matky a oddělení mínus.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Co začít měřit</h2>
+  <p class="sub">Ukazatele, které pro 2026 nemáme, ale bez nichž nepůjde porovnávat kvalitu,
+  jen peníze. Nejlevnější je začít je sbírat teď.</p>
+  <ul class="findings">
+    <li><strong>Spokojenost rodičů (NPS).</strong> Jedna otázka v e-mailu po táboře.
+    Bez ní se nedozvíme, jestli nízká obsazenost Žižkova byla o místě, ceně, nebo o zkušenosti
+    z loňska.</li>
+    <li><strong>Retence dětí.</strong> Kolik jich přijelo znovu. Jde dopočítat z kontaktů
+    v SimpleShopu, ale letos to nemá s čím porovnat — táborové účty vznikly až v únoru 2026.</li>
+    <li><strong>Křivka předprodeje.</strong> Kdy se místa prodávala. Z dat to jde vytáhnout
+    hned, a příští rok podle ní půjde poznat, že se lokace neprodává, ještě v době, kdy
+    se s tím dá něco dělat.</li>
+    <li><strong>Rozpad marketingu na kanály a lokace.</strong> Dnes je to jedna faktura
+    za 600 tisíc. Bez rozpadu nejde říct, co Žižkov dostal a co ne.</li>
+    <li><strong>Retence lektorů.</strong> Kolik jich jede druhou sezónu — přímo souvisí
+    s náklady na školení a s kvalitou programu.</li>
+  </ul>
+</section>
+
+</div><!-- /tab-kpi -->
+
 <footer>
   <p><strong>Čemu věřit.</strong> Vstupné, obědy, odvody, interní fakturace a mzdy jsou uzavřené
   a ověřené. Naopak <strong>fakturace Media a Events proběhla podle plánovaných částek</strong> —
@@ -559,6 +848,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   Přeúčtování obědů z vstupného je úprava pro čtení reportu; v Tabidoo zatím sedí pod vstupným.</p>
   <p>Zdroje: LuDone / Tabidoo (rozpočty a čerpání), SimpleShop (prodeje; type=1, uhrazené,
   nestornované, atribuce podle product_id). Stav k 31. 8. 2026.</p>
+  <p>Pro ověření dalších čísel začni v modulu <a class="ext" href="https://app.ludone.cz/rozpocty" target="_blank" rel="noopener">Rozpočty<span class="ext-ico" aria-hidden="true"> ↗</span></a>.</p>
 </footer>
 
 </div>
@@ -617,6 +907,25 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     return (v<0?"−":"+")+s;}
   function plain(v){return Math.abs(Math.round(v)).toLocaleString("cs-CZ").replace(/ /g," ");}
 
+  // mapa lokace -> cesta v LuDone (Rozpočty); u položek s " · " se bere projekt pred oddelovacem
+  var LOC_LINKS = {
+    "Pluhárna": "maker-tabor-z-s/tabor-pluharna-2026",
+    "HW Lab": "maker-tabor-praha-z-s/tabor-hw-lab-2026",
+    "Plechárna": "maker-tabor-praha-z-s/tabor-plecharna-2026",
+    "Holešovice": "maker-tabor-praha-z-s/tabor-holesovice-2026",
+    "Kumst": "maker-tabor-morava-z-s/tabor-kumst-2026",
+    "Žižkov": "maker-tabor-z-s/tabor-zizkov-2026",
+    "Robotábor": "maker-tabor-z-s/robotabor-2026",
+    "Celoroční": "makeeducation-cz/tabory-celorocni-2026"
+  };
+  function locLink(loc){
+    var proj = loc.split(" · ")[0];
+    var path = LOC_LINKS[proj];
+    if(!path) return loc;
+    return '<a class="ext" href="https://app.ludone.cz/rozpocty/'+path+'" target="_blank" rel="noopener">'+
+      loc+'<span class="ext-ico" aria-hidden="true"> ↗</span></a>';
+  }
+
   // --- render kalkulacky ---
   var host = document.getElementById("calcRows");
   CATS.forEach(function(c){
@@ -626,7 +935,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     var d = document.createElement("details");
     d.className="calc-row";
     var rows = c.items.map(function(i,ix){
-      return '<tr><td>'+i.loc+'</td>'+
+      return '<tr><td>'+locLink(i.loc)+'</td>'+
         '<td class="num subtle">'+plain(i.plan)+'</td>'+
         '<td class="num subtle">'+plain(i.real)+'</td>'+
         '<td><input type="number" step="500" data-cat="'+c.key+'" data-ix="'+ix+'" value="'+i.navrh+'"'+
@@ -838,6 +1147,30 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
 
   drawLocations();
   update();
+
+  // ---- taby ----
+  var tabBtns = Array.prototype.slice.call(document.querySelectorAll('.tabs button[data-tab]'));
+  function showTab(key){
+    tabBtns.forEach(function(b){
+      var on = b.dataset.tab === key;
+      b.setAttribute("aria-selected", String(on));
+      var panel = document.getElementById("tab-" + b.dataset.tab);
+      if(panel) panel.hidden = !on;
+    });
+    // grafy v skrytem panelu maji nulovou sirku — po zobrazeni prekresli
+    if(key === "uzaverka"){ drawWaterfall(); drawLocations(); }
+    try{ history.replaceState(null,"","#"+key); }catch(e){}
+  }
+  tabBtns.forEach(function(b){
+    b.addEventListener("click", function(){ showTab(b.dataset.tab); });
+    b.addEventListener("keydown", function(e){
+      if(e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      var i = tabBtns.indexOf(b);
+      var next = tabBtns[(i + (e.key === "ArrowRight" ? 1 : tabBtns.length-1)) % tabBtns.length];
+      next.focus(); showTab(next.dataset.tab);
+    });
+  });
+  if(location.hash === "#kpi") showTab("kpi");
 })();
 </script>
 </body></html>
