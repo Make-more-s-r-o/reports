@@ -326,7 +326,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <span><i class="sw" style="background:var(--color-negative)"></i>Sráží výsledek</span>
       </div>
       <svg id="wf" viewBox="0 0 900 320" role="img" aria-labelledby="wfTitle">
-        <title id="wfTitle">Vodopádový graf od plánu k dopočtenému výsledku</title>
+        <title id="wfTitle">Vodopádový graf od rozpočtové bilance k očekávané bilanci</title>
       </svg>
     </div>
     <figcaption>Poslední tři sloupce se mění podle nastavení kalkulačky výše.</figcaption>
@@ -1167,7 +1167,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     var pad=Math.max((hi-lo)*0.14,45000); lo-=pad; hi+=pad;
     var T=26,H=228,W=900,L=64,R=18;
     function y(v){return T+(hi-v)/(hi-lo)*H;}
-    var p=['<title id="wfTitle">Vodopádový graf od plánu k dopočtenému výsledku</title>'];
+    var p=['<title id="wfTitle">Vodopádový graf od rozpočtové bilance k očekávané bilanci</title>'];
     for(var i=0;i<5;i++){
       var tv=hi-(hi-lo)*i/4, ty=y(tv);
       p.push('<line class="gl" x1="'+L+'" y1="'+ty.toFixed(1)+'" x2="'+(W-R)+'" y2="'+ty.toFixed(1)+'"/>');
