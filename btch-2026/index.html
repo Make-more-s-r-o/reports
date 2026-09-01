@@ -172,16 +172,20 @@ tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
     </div>
     <div class="kpi is-primary">
       <div class="label">K rozdělení na aktivity</div>
-      <div class="value">2 598 302</div>
-      <div class="hint">Po odečtení práce Matěje, která je do konce projektu daná.
-        Podle peněz, které skutečně přišly, je to 2 265 190 — viz výpočet níž.</div>
+      <div class="value">2 265 190</div>
+      <div class="hint">Kolik z přijatých peněz zbývá po odečtení práce Matěje,
+        která je do konce projektu daná. Výpočet je v kapitole 5.</div>
     </div>
   </div>
   <div class="note accent">
     <strong>Rozdíl mezi „přišlo“ a „utraceno“ není zisk.</strong> Jsou to peníze, které
-    ještě čekají na festivaly, workshopy a mzdy naplánované do léta 2027. Plán nákladů
-    (4 504 430) je přitom o <strong>333 112 Kč vyšší, než kolik do projektu přišlo</strong> —
-    pokud se vyčerpá celý, skončí projekt o tuto částku v mínusu.
+    ještě čekají na festivaly, workshopy a mzdy naplánované do léta 2027.
+  </div>
+  <div class="note warn">
+    <strong>Projekt nesmí skončit v mínusu — a rozpočet k tomu zatím směřuje.</strong>
+    Plán nákladů je 4 504 430 Kč, ale přišlo 4 171 318 Kč. Rozpočet je tedy naplánovaný
+    o <strong>333 112 Kč nad příjem</strong> a o tuto částku se musí seškrtat.
+    <strong>Strop na zbývající aktivity je 2 265 190 Kč</strong>, ne 2 598 302 podle rozpočtu.
   </div>
 </section>
 
@@ -367,12 +371,35 @@ tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
   </table>
   </div>
 
-  <div class="note">
-    <strong>Podle rozpočtu vychází číslo vyšší: 2 598 302 Kč.</strong> Rozpočet totiž
-    počítá s výdaji za 4 504 430 Kč, zatímco přišlo 4 171 318 Kč — je tedy naplánováno
-    o <strong>333 112 Kč víc, než na kolik jsou peníze</strong>. Podle rozpočtu zbývá
-    2 891 889 Kč, po odečtení Matěje 2 598 302 Kč; podle skutečných peněz je to
-    2 265 190 Kč. Rozdíl mezi oběma čísly je přesně ten přeplánovaný rozpočet.
+  <h3>Proč to není 2 891 889 jako v tabulce výš</h3>
+  <p class="sub">Tabulka 4 měří, kolik zbývá <strong>do vyčerpání rozpočtu</strong>.
+     Tahle kapitola měří, kolik na to <strong>zbývá peněz</strong>. Rozdíl 626 699 Kč
+     se skládá ze dvou věcí:</p>
+  <div class="tw">
+  <table>
+    <thead>
+      <tr><th>Můstek mezi oběma čísly</th><th class="num">Kč</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Zbývá podle rozpočtu (tabulka 4)</td><td class="num">2 891 889</td></tr>
+      <tr class="indent"><td>− práce Matěje do konce projektu</td><td class="num">−293 587</td></tr>
+      <tr class="indent"><td>− rozpočet je naplánovaný nad příjem</td><td class="num">−333 112</td></tr>
+      <tr class="grand"><td>Zbývá rozdělit na aktivity</td><td class="num">2 265 190</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note warn">
+    <strong>Ten druhý řádek je úkol, ne poznámka.</strong> Rozpočet počítá s výdaji
+    za 4 504 430 Kč, ale přišlo 4 171 318 Kč. Kdo by rozděloval podle rozpočtu, rozdělí
+    třetinu milionu, která v projektu není — a projekt skončí v mínusu.
+    <strong>Rozpočet se proto musí snížit o 333 112 Kč</strong> a plánované aktivity
+    se musí vejít do 2 265 190 Kč.
+  </div>
+  <div class="note accent">
+    <strong>Kde se dá škrtat.</strong> Zatím nezačaté skupiny drží 1 513 211 Kč:
+    festivaly 1–8 za 1 124 210 a workshopy v tělocvičně za 389 001. Potřebných
+    333 112 Kč je 22 % z toho. Druhá možnost je nedočerpaný marketing (324 341 Kč),
+    kde už se navíc rýsuje úspora — nová dohoda je na 320 000 místo 350 000.
   </div>
   <div class="note accent">
     <strong>Proč se odečítá zrovna Matěj.</strong> Má alokaci 847 hodin až do 29. 6. 2027
