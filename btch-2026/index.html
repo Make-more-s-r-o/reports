@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<style>:root{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Build the Change — stav k 1. 9. 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --color-surface: oklch(0.975 0.004 80);
+  --color-surface-elevated: oklch(0.995 0.003 80);
+  --color-surface-elevated-2: oklch(0.95 0.01 80);
+  --color-on-surface: oklch(0.23 0.015 260);
+  --color-on-surface-muted: oklch(0.44 0.015 260);
+  --color-on-surface-subtle: oklch(0.56 0.012 260);
+  --color-border: oklch(0.89 0.006 260);
+  --color-border-strong: oklch(0.80 0.010 260);
+  --color-accent: oklch(0.55 0.2 260);
+  --color-accent-fg: oklch(0.99 0 0);
+  --color-accent-tint: color-mix(in oklab, var(--color-accent) 8%, transparent);
+  --color-positive: oklch(0.52 0.11 155);
+  --color-negative: oklch(0.53 0.16 27);
+  --color-warning: oklch(0.60 0.13 75);
+  --color-ring: var(--color-accent);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --color-surface: oklch(0.19 0.012 260);
+    --color-surface-elevated: oklch(0.23 0.014 260);
+    --color-surface-elevated-2: oklch(0.28 0.016 260);
+    --color-on-surface: oklch(0.94 0.005 260);
+    --color-on-surface-muted: oklch(0.76 0.010 260);
+    --color-on-surface-subtle: oklch(0.62 0.012 260);
+    --color-border: oklch(0.33 0.014 260);
+    --color-border-strong: oklch(0.44 0.016 260);
+    --color-accent: oklch(0.68 0.15 260);
+    --color-accent-fg: oklch(0.16 0.01 260);
+    --color-positive: oklch(0.70 0.13 155);
+    --color-negative: oklch(0.68 0.15 27);
+    --color-warning: oklch(0.75 0.13 75);
+  }
+}
+:root[data-theme="dark"]{
+  --color-surface: oklch(0.19 0.012 260);
+  --color-surface-elevated: oklch(0.23 0.014 260);
+  --color-surface-elevated-2: oklch(0.28 0.016 260);
+  --color-on-surface: oklch(0.94 0.005 260);
+  --color-on-surface-muted: oklch(0.76 0.010 260);
+  --color-on-surface-subtle: oklch(0.62 0.012 260);
+  --color-border: oklch(0.33 0.014 260);
+  --color-border-strong: oklch(0.44 0.016 260);
+  --color-accent: oklch(0.68 0.15 260);
+  --color-accent-fg: oklch(0.16 0.01 260);
+  --color-positive: oklch(0.70 0.13 155);
+  --color-negative: oklch(0.68 0.15 27);
+  --color-warning: oklch(0.75 0.13 75);
+}
+*{box-sizing:border-box}
+body{background:var(--color-surface);color:var(--color-on-surface);
+  font:400 14px/1.6 "Public Sans",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Brockmann","Public Sans",system-ui,sans-serif;
+  line-height:1.12;letter-spacing:-0.018em;font-weight:600;margin:0}
+.num,td.num,th.num{font-family:"Geist Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+:where(a,button,summary,[tabindex]):focus-visible{outline:2px solid var(--color-ring);outline-offset:2px}
+.wrap{max-width:1020px;margin:0 auto;padding:32px 20px 64px}
+
+.page-header{border-bottom:1px solid var(--color-border);padding-bottom:20px;margin-bottom:26px}
+.module-badge{display:inline-block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  font-weight:600;color:var(--color-accent);border-left:2px solid var(--color-accent);
+  padding-left:8px;margin-bottom:10px}
+h1{font-size:clamp(25px,4.4vw,35px)}
+.page-header>p{color:var(--color-on-surface-muted);margin:9px 0 0;max-width:68ch;font-size:15px}
+.info-strip{display:flex;flex-wrap:wrap;margin-top:15px;border:1px solid var(--color-border);
+  background:var(--color-surface-elevated)}
+.info-strip div{padding:7px 13px;font-size:12.5px;color:var(--color-on-surface-muted);
+  border-right:1px solid var(--color-border)}
+.info-strip div:last-child{border-right:none}
+.info-strip strong{color:var(--color-on-surface);font-weight:600}
+
+section{margin-top:34px}
+h2{font-size:21px;margin-bottom:4px}
+h3{font-size:15px;margin-top:22px;margin-bottom:8px}
+.sub{color:var(--color-on-surface-subtle);font-size:13.5px;margin:0 0 15px;max-width:74ch}
+p{max-width:74ch}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--color-border);
+  background:var(--color-surface-elevated)}
+@media (max-width:640px){.kpi-grid{grid-template-columns:1fr}
+  .kpi{border-right:none!important;border-bottom:1px solid var(--color-border)}}
+.kpi{padding:15px 16px;border-right:1px solid var(--color-border)}
+.kpi:last-child{border-right:none;border-bottom:none}
+.kpi.is-primary{background:var(--color-accent-tint);border-left:3px solid var(--color-accent)}
+.kpi .label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--color-on-surface-subtle);font-weight:600}
+.kpi .value{font-family:"Geist Mono",monospace;font-variant-numeric:tabular-nums;
+  font-size:clamp(19px,3.2vw,26px);font-weight:500;margin-top:6px;letter-spacing:-.02em}
+.kpi .hint{font-size:12px;color:var(--color-on-surface-subtle);margin-top:5px;line-height:1.45}
+.pos{color:var(--color-positive)}.neg{color:var(--color-negative)}.warn{color:var(--color-warning)}
+
+.tw{overflow-x:auto;border:1px solid var(--color-border);background:var(--color-surface-elevated)}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:13.5px}
+th,td{padding:8px 12px;text-align:right;border-bottom:1px solid var(--color-border);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+thead th{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--color-on-surface-subtle);
+  font-weight:600;background:var(--color-surface-elevated-2);border-bottom:1px solid var(--color-border-strong)}
+tbody tr:last-child td{border-bottom:none}
+tr.sum td{font-weight:600;background:var(--color-surface-elevated-2);border-top:1px solid var(--color-border-strong)}
+tr.grand td{font-weight:600;background:var(--color-accent-tint);border-top:2px solid var(--color-accent)}
+tr.zero td{color:var(--color-on-surface-subtle)}
+tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
+
+.tag{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;
+  padding:2px 6px;border-radius:2px;white-space:nowrap}
+.tag.done{background:color-mix(in oklab,var(--color-positive) 14%,transparent);color:var(--color-positive)}
+.tag.wait{background:color-mix(in oklab,var(--color-warning) 16%,transparent);color:var(--color-warning)}
+.tag.new{background:var(--color-accent-tint);color:var(--color-accent)}
+
+.note{border-left:3px solid var(--color-border-strong);background:var(--color-surface-elevated);
+  padding:12px 15px;margin:16px 0;font-size:13.5px;color:var(--color-on-surface-muted)}
+.note strong{color:var(--color-on-surface)}
+.note.accent{border-left-color:var(--color-accent)}
+.note.warn{border-left-color:var(--color-warning)}
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:16px 0}
+.flow .box{flex:1 1 190px;border:1px solid var(--color-border);background:var(--color-surface-elevated);padding:12px 14px}
+.flow .box .lab{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--color-on-surface-subtle)}
+.flow .box .val{font-family:"Geist Mono",monospace;font-variant-numeric:tabular-nums;font-size:19px;font-weight:500;margin-top:5px}
+.flow .box .who{font-size:12px;color:var(--color-on-surface-subtle);margin-top:4px}
+.foot{margin-top:44px;padding-top:16px;border-top:1px solid var(--color-border);
+  font-size:12.5px;color:var(--color-on-surface-subtle)}
+</style>
+
+<div class="wrap">
+
+<header class="page-header">
+  <div class="module-badge">Make Education · Rozpočty</div>
+  <h1>Build the Change — kde jsou peníze</h1>
+  <p>Kolik do projektu přišlo, kolik z toho šlo na odvody, co se už vyčerpalo a za co,
+     a co k 1. září 2026 zbývá. Není to vyhodnocení projektu — je to soupis stavu peněz.</p>
+  <div class="info-strip">
+    <div>Projekt <strong>LEGO Build the Change 26+27</strong></div>
+    <div>Vedoucí <strong>Pavel Šrytr</strong></div>
+    <div>Sezóny <strong>2026 + 2027</strong></div>
+    <div>Stav k <strong>1. 9. 2026</strong></div>
+  </div>
+</header>
+
+<section>
+  <h2>Tři čísla</h2>
+  <p class="sub">Projekt běží do 14. července 2027. LEGO zaplatilo celou částku dopředu,
+     výdaje se ale rozkládají do dvou sezón — proto je přijato skoro všechno a utraceno teprve třetina.</p>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Přišlo do projektu</div>
+      <div class="value">4 171 318</div>
+      <div class="hint">100,1 % plánu (4 168 110). Jediný zdroj: LEGO.</div>
+    </div>
+    <div class="kpi is-primary">
+      <div class="label">Utraceno k 1. 9. 2026</div>
+      <div class="value">1 612 541</div>
+      <div class="hint">35,8 % plánovaných nákladů. Včetně odvodů a mezd.</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Zbývá z rozpočtu</div>
+      <div class="value">2 891 889</div>
+      <div class="hint">Naplánováno na zbytek 2026 a na sezónu 2027.</div>
+    </div>
+  </div>
+  <div class="note accent">
+    <strong>Rozdíl mezi „přišlo“ a „utraceno“ není zisk.</strong> Jsou to peníze, které
+    ještě čekají na festivaly, workshopy a mzdy naplánované do léta 2027. Plán nákladů
+    (4 504 430) je přitom o <strong>333 112 Kč vyšší, než kolik do projektu přišlo</strong> —
+    pokud se vyčerpá celý, skončí projekt o tuto částku v mínusu.
+  </div>
+</section>
+
+<section>
+  <h2>1 · Přišlo do projektu a kam šly odvody</h2>
+  <p class="sub">Odvod se počítá z realizovaného příjmu, ne z nákladů. Sazby jsou u tohoto
+     projektu 8 % na matku a 10 % na oddělení — nejsou firemní konstanta, každý projekt je má vlastní.</p>
+
+  <div class="flow">
+    <div class="box">
+      <div class="lab">Přišlo</div>
+      <div class="val">4 171 318</div>
+      <div class="who">LEGO — partnerská smlouva</div>
+    </div>
+    <div class="box">
+      <div class="lab">Odvod na matku · 8 %</div>
+      <div class="val">333 705</div>
+      <div class="who">Make more s.r.o.</div>
+    </div>
+    <div class="box">
+      <div class="lab">Odvod na firmu · 10 %</div>
+      <div class="val">417 132</div>
+      <div class="who">MakeEducation.cz</div>
+    </div>
+    <div class="box">
+      <div class="lab">Zbylo projektu</div>
+      <div class="val">3 420 481</div>
+      <div class="who">na vlastní náklady a mzdy</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Odvody jsou vypořádané na korunu.</strong> 8 % a 10 % z realizovaného příjmu
+    dává přesně odvedené částky — žádná příjmová faktura odvod neminula. To je u běžícího
+    projektu spíš výjimka; odvody se obvykle dorovnávají až při uzávěrce.
+  </div>
+  <div class="note">
+    <strong>Odvod není ztráta pro skupinu.</strong> Je to přesun peněz uvnitř Make more —
+    projektu ubyde, matce a oddělení přibyde. Ve skupině je výsledek nula.
+  </div>
+</section>
+
+<section>
+  <h2>2 · Co se už vyčerpalo a za co</h2>
+  <p class="sub">Nákladové skupiny podle rozpočtu projektu. „Vyčerpáno“ znamená faktury
+     plus platby z účtu bez faktury — ne odhad.</p>
+
+  <div class="tw">
+  <table>
+    <thead>
+      <tr><th>Nákladová skupina</th><th class="num">Vyčerpáno</th><th class="num">Plán</th><th class="num">Čerpání</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Odvody (matka + firma)</td><td class="num">750 837</td><td class="num">750 260</td><td class="num">100 %</td></tr>
+      <tr><td>Workshopy ve škole</td><td class="num">118 712</td><td class="num">705 601</td><td class="num">17 %</td></tr>
+      <tr><td>Interní fakturace — vývoj webu, příprava, grafika, textace <span class="tag new">Nové</span></td><td class="num">80 950</td><td class="num">80 950</td><td class="num">100 %</td></tr>
+      <tr><td>Program — lektoři a materiál na akcích</td><td class="num">80 447</td><td class="num">70 706</td><td class="num neg">114 %</td></tr>
+      <tr><td>Plechárna — interní fakturace Make Events</td><td class="num">52 888</td><td class="num">45 388</td><td class="num neg">117 %</td></tr>
+      <tr><td>Produkce — ubytování, doprava, diety, expozice</td><td class="num">46 649</td><td class="num">96 650</td><td class="num">48 %</td></tr>
+      <tr><td>Marketing a PR</td><td class="num">38 659</td><td class="num">363 000</td><td class="num">11 %</td></tr>
+      <tr><td>Kladno — interní fakturace Make Events</td><td class="num">18 696</td><td class="num">18 696</td><td class="num">100 %</td></tr>
+      <tr><td>Karviná — interní fakturace Make Events</td><td class="num">15 996</td><td class="num">15 996</td><td class="num">100 %</td></tr>
+      <tr><td>Nájem za akce</td><td class="num">15 000</td><td class="num">15 000</td><td class="num">100 %</td></tr>
+      <tr class="zero"><td>Festivaly 1–8 <span class="tag wait">Teprve budou</span></td><td class="num">0</td><td class="num">1 124 210</td><td class="num">0 %</td></tr>
+      <tr class="zero"><td>Workshopy v tělocvičně <span class="tag wait">Teprve budou</span></td><td class="num">0</td><td class="num">389 001</td><td class="num">0 %</td></tr>
+      <tr class="zero"><td>Rezerva</td><td class="num">0</td><td class="num">2</td><td class="num">0 %</td></tr>
+      <tr class="sum"><td>Náklady bez mezd</td><td class="num">1 218 834</td><td class="num">3 675 460</td><td class="num">33 %</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note accent">
+    <strong>Interní fakturace za web je čerstvá.</strong> Řádky za vývoj webu (40 000)
+    a za přípravu, grafiku, textaci a komunikaci (40 950) byly vyfakturovány 1. září.
+    V systému se objeví až druhý den — v tabulce jsou už započítané, aby číslo odpovídalo realitě.
+  </div>
+  <div class="note">
+    <strong>Interní fakturace, které už proběhly:</strong> Karviná 15 996, Kladno 18 696,
+    Plechárna 52 888, část Make Media 20 000, amortizace vybavení Make Events 29 760
+    a nově web 80 950 — dohromady <strong>218 290 Kč</strong>. Jsou to peníze, které zůstaly
+    ve skupině: projekt je zaplatil sesterským firmám za odvedenou práci.
+  </div>
+  <div class="note warn">
+    <strong>Dvě skupiny jsou přečerpané:</strong> Program o 9 741 Kč (lektoři a materiál na akcích)
+    a Plechárna o 7 500 Kč. Malé částky, ale rozpočet je u nich vyčerpaný — další výdaj
+    už nemá krytí.
+  </div>
+</section>
+
+<section>
+  <h2>3 · Výkazy práce</h2>
+  <p class="sub">Mzdový náklad se počítá z vykázaného času, ne z alokace. Alokace je jen strop —
+     co se nevykáže, do nákladu nevstoupí.</p>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Vykázaný mzdový náklad</div>
+      <div class="value">393 707</div>
+      <div class="hint">47,5 % z plánu 828 970 Kč</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Vykázané hodiny</div>
+      <div class="value">1 234,5</div>
+      <div class="hint">z 2 349 alokovaných</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Zbývá mzdového rozpočtu</div>
+      <div class="value">435 263</div>
+      <div class="hint">strop do 29. 6. 2027</div>
+    </div>
+  </div>
+
+  <h3>Kdo je na projektu alokovaný</h3>
+  <div class="tw">
+  <table>
+    <thead>
+      <tr><th>Člověk</th><th>Alokační období</th><th class="num">Alokováno h</th><th class="num">Vykázáno h</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pavel Šrytr</td><td>1. 1. – 31. 12. 2026</td><td class="num">480</td><td class="num">0</td></tr>
+      <tr><td>Matěj Čermák</td><td>20. 6. – 30. 9. 2026</td><td class="num">245</td><td class="num">0</td></tr>
+      <tr><td>Matěj Čermák</td><td>1. 10. – 31. 12. 2026</td><td class="num">218</td><td class="num">0</td></tr>
+      <tr><td>Matěj Čermák</td><td>1. 1. – 29. 6. 2027</td><td class="num">384</td><td class="num">173,2</td></tr>
+      <tr><td>Lenka Karpíšková</td><td>1. 1. – 30. 6. 2026</td><td class="num">339</td><td class="num">0</td></tr>
+      <tr><td>Lenka Karpíšková</td><td>1. 7. – 31. 12. 2026</td><td class="num">161</td><td class="num">0</td></tr>
+      <tr><td>Klárka Fichnová</td><td>1. 1. – 30. 6. 2026</td><td class="num">228</td><td class="num">0</td></tr>
+      <tr><td>Klárka Fichnová</td><td>1. 7. – 31. 12. 2026</td><td class="num">234</td><td class="num">0</td></tr>
+      <tr><td>Eliška Kundrátová</td><td>1. 1. – 30. 6. 2026</td><td class="num">32</td><td class="num">0</td></tr>
+      <tr><td>Eliška Kundrátová</td><td>1. 7. – 31. 12. 2026</td><td class="num">28</td><td class="num">0</td></tr>
+      <tr class="indent"><td>Hodiny mimo všechna alokační období</td><td>—</td><td class="num">—</td><td class="num">1 061,3</td></tr>
+      <tr class="sum"><td>Celkem</td><td>2026 – 6/2027</td><td class="num">2 349</td><td class="num">1 234,5</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note warn">
+    <strong>Hodiny nesedí na alokace.</strong> Z 1 234,5 vykázaných hodin padá do některého
+    alokačního období jen 173,2. Zbylých 1 061,3 hodin je vykázáno v měsících, které nespadají
+    pod žádnou alokaci. Mzdový náklad 393 707 Kč je skutečný a je v číslech započítaný,
+    ale <strong>nedá se rozpadnout na lidi a období</strong>. Než se to srovná, ber rozpad
+    po lidech jako orientační.
+  </div>
+  <div class="note">
+    Částky u jednotlivých lidí tento report záměrně neuvádí — mzdy jednotlivců zůstávají
+    v LuDone pod přístupovými právy.
+  </div>
+</section>
+
+<section>
+  <h2>4 · K 1. září 2026 utraceno a zbývá</h2>
+  <div class="tw">
+  <table>
+    <thead>
+      <tr><th>Vrstva</th><th class="num">Utraceno</th><th class="num">Plán</th><th class="num">Zbývá</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Provozní náklady</td><td class="num">467 997</td><td class="num">2 925 200</td><td class="num">2 457 203</td></tr>
+      <tr><td>Odvody</td><td class="num">750 837</td><td class="num">750 260</td><td class="num neg">−577</td></tr>
+      <tr><td>Mzdy</td><td class="num">393 707</td><td class="num">828 970</td><td class="num">435 263</td></tr>
+      <tr class="grand"><td>Celkem</td><td class="num">1 612 541</td><td class="num">4 504 430</td><td class="num">2 891 889</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:14px">
+    Z peněz, které od LEGO přišly, je <strong>k 1. 9. 2026 utraceno 1 612 541 Kč</strong>
+    a nevyčerpáno zůstává <strong>2 558 777 Kč</strong>. Rozpočet ale počítá s výdaji
+    za 2 891 889 Kč — o 333 tisíc víc, než kolik na účtu z projektu zbývá.
+  </p>
+</section>
+
+<section>
+  <h2>Co v číslech ještě není</h2>
+  <ul>
+    <li><strong>Festivaly a workshopy v tělocvičně</strong> — 1 513 211 Kč rozpočtu s nulovým
+        čerpáním. Akce teprve proběhnou, výdaj tedy teprve přijde.</li>
+    <li><strong>Zbytek interní fakturace</strong> — sesterské firmy dosud nevyfakturovaly
+        všechno, co mají v rozpočtu. Až to udělají, čerpání povyskočí.</li>
+    <li><strong>Mzdy do léta 2027</strong> — 435 263 Kč stropu je zatím nevyčerpaných.</li>
+    <li><strong>Zda peníze od LEGO dorazily na účet</strong> — tento report sleduje faktury
+        a platby v rozpočtu, ne stav bankovního účtu.</li>
+  </ul>
+</section>
+
+<footer class="foot">
+  Zdroj: LuDone, modul Rozpočty — projekt LEGO Build the Change 26+27.
+  Data k 1. 9. 2026 ráno; interní fakturace za web doplněna ručně, protože byla vystavena týž den.
+  Náklady jsou uvedeny jako kladná čísla. Sestaveno pro CFO agendu Make more s.r.o.
+</footer>
+
+</div>
+</body></html>
