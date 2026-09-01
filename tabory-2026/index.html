@@ -253,7 +253,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
   <div class="info-strip">
     <div>Zdroj: <strong>LuDone / Tabidoo</strong></div>
     <div>Prodeje: <strong>SimpleShop</strong></div>
-    <div>Stav k <strong>31. 8. 2026</strong></div>
+    <div>Stav k <strong>1. 9. 2026</strong></div>
     <div>Vstupné: <strong>uzavřeno</strong></div>
     <div>Mzdy: <strong>potvrzené</strong></div>
   </div>
@@ -269,7 +269,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
 
 <section>
   <h2>Výsledek</h2>
-  <p class="sub">Účetní stav ukazuje 199 tisíc, ale nezahrnuje náklady bez dokladů ani nevyfakturovaného
+  <p class="sub">Účetní stav ukazuje 198,5 tisíce, ale nezahrnuje náklady bez dokladů ani nevyfakturovaného
   partnera. Očekávaná bilance vychází na těsný plus.</p>
   <div class="kpi-grid">
     <div class="kpi">
@@ -279,13 +279,13 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     </div>
     <div class="kpi">
       <div class="label">Reálná bilance</div>
-      <div class="value pos">+199 024</div>
-      <div class="hint">Účetní stav k dnešku.</div>
+      <div class="value pos">+198 499</div>
+      <div class="hint">Účetní stav k 1. 9. 2026.</div>
     </div>
     <div class="kpi is-primary">
       <div class="label">Očekávaná bilance</div>
-      <div class="value pos" id="kpiFinal">+15 627</div>
-      <div class="hint" id="kpiFinalHint">Nájem plně, strava podle obsazenosti, BTL dojde.</div>
+      <div class="value pos" id="kpiFinal">+1 102</div>
+      <div class="hint" id="kpiFinalHint">Nájem plně, strava podle obsazenosti, BTL dojde — včetně 20% odvodu z něj.</div>
     </div>
   </div>
   <p class="sub" style="margin-top:12px">Očekávaná bilance je reálná bilance plus všechno, o čem víme,
@@ -380,7 +380,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
       <span class="why">Vypadá to jako úspora, ale není. Odvod je 20 % z tržeb — když jsou tržby
         nižší, odvede se míň. <strong>Táborům to výsledek zlepšilo, matce a oddělení stejnou částku
         sebralo</strong> (77 077 každému). Firma jako celek si nepolepšila.</span>
-      <span class="amt pos">+199 024</span>
+      <span class="amt pos">+198 499</span>
     </div>
     <div class="step">
       <span class="who neg" id="stepDokladyLbl">Čeká na doklad −253 397</span>
@@ -390,14 +390,15 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     </div>
     <div class="step">
       <span class="who pos" id="stepPrijmyLbl">Čeká na fakturaci +70 000</span>
-      <span class="why">Partnerská faktura na Robotáboru. Vstupné už uzavřené je — odsud
-        další tržba nepřijde.</span>
-      <span class="amt pos" id="stepPrijmy">+15 627</span>
+      <span class="why">Partnerská faktura na Robotáboru. Vstupné už uzavřené je — odsud další tržba
+        nepřijde. <strong>Přinese ale s sebou odvod</strong>: 20 % z ní putuje matce a oddělení,
+        takže čistý přínos je 56 000, ne 70 000.</span>
+      <span class="amt pos" id="stepPrijmy">+1 102</span>
     </div>
     <div class="step result">
       <span class="who">Očekávaná bilance</span>
       <span class="why">Se vším, co dnes víme.</span>
-      <span class="amt" id="stepVysledek">+15 627</span>
+      <span class="amt" id="stepVysledek">+1 102</span>
     </div>
   </div>
 </section>
@@ -411,11 +412,11 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <th class="num">Rozdíl</th><th>Stav</th></tr></thead>
       <tbody>
         <tr><td>Vstupné <span class="subtle">· 421 míst</span></td>
-          <td class="num">3 272 680</td><td class="num">2 587 586</td>
-          <td class="num neg">−685 094</td><td><span class="tag gone">Uzavřeno</span></td></tr>
+          <td class="num">3 272 680</td><td class="num">2 590 906</td>
+          <td class="num neg">−681 774</td><td><span class="tag gone">Uzavřeno</span></td></tr>
         <tr><td>Obědy <span class="subtle">· 347 porcí</span></td>
-          <td class="num">283 200</td><td class="num">277 600</td>
-          <td class="num neg">−5 600</td><td><span class="tag done">98 % plánu</span></td></tr>
+          <td class="num">283 200</td><td class="num">274 280</td>
+          <td class="num neg">−8 920</td><td><span class="tag done">97 % plánu</span></td></tr>
         <tr><td>Dotace <span class="subtle">· NFSA dar</span></td>
           <td class="num">100 000</td><td class="num">100 000</td>
           <td class="num subtle">0</td><td><span class="tag done">Hotovo</span></td></tr>
@@ -431,13 +432,16 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     </table>
   </div>
   <div class="notice flag">
-    <p><strong>Obědy nechybí, jsou špatně zařazené.</strong> V LuDone má gastro řádka nulu, ale
-    v SimpleShopu se za stravu vybralo <strong>277 600 Kč</strong> — jen se to zaúčtovalo pod vstupné.
-    V téhle tabulce jsem to přeúčtoval zpátky, aby čísla odpovídala realitě. V Tabidoo to zatím
-    sedí jinak.</p>
-    <p>Prakticky to znamená, že <strong>propad je čistě v pobytech, ne ve stravě</strong>. Obědy
-    si koupilo 347 ze 421 dětí, tedy 82 % — <strong>plán přitom počítal jen se 65 %</strong>
-    (354 porcí na 544 míst). Ochota připlatit si za stravu je výrazně vyšší, než rozpočet čekal.</p>
+    <p><strong>Obědy jsou nově zaúčtované správně.</strong> Ještě 31. srpna seděla celá tržba
+    za stravu pod vstupným a gastro řádka ukazovala nulu; k 1. září je <strong>274 280 Kč</strong>
+    přeúčtovaných na gastro, tedy 97 % plánu. Čísla v téhle tabulce už jdou přímo z LuDone,
+    nic nepřepočítávám ručně.</p>
+    <p>Prakticky to znamená, že <strong>propad je čistě v pobytech, ne ve stravě</strong>: vstupné
+    zaostalo o 682 tisíc, strava jen o 9 tisíc. Obědy si koupilo 347 ze 421 dětí, tedy 82 % —
+    <strong>plán přitom počítal jen se 65 %</strong> (354 porcí na 544 míst).</p>
+    <p>Po lokacích se to ale rozchází: Kumst 155 % plánu, HW Lab 137 %, Pluhárna 132 %,
+    Holešovice 114 % — <strong>ale Žižkov jen 39 % a Plechárna 80 %</strong>. Tam, kde se
+    neprodala místa, se neprodaly ani obědy.</p>
   </div>
 </section>
 
@@ -462,8 +466,8 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <th class="num">Rozdíl</th><th>Dopad</th></tr></thead>
       <tbody>
         <tr><td>Mzdy <span class="subtle">· 1 217 h, 9 alokací</span></td>
-          <td class="num">386 810</td><td class="num">451 179</td>
-          <td class="num neg">+64 369</td><td class="subtle">Režie se s poklesem prodeje nezmenšila</td></tr>
+          <td class="num">386 810</td><td class="num">451 704</td>
+          <td class="num neg">+64 894</td><td class="subtle">Režie se s poklesem prodeje nezmenšila</td></tr>
         <tr><td>Odvod na matku <span class="subtle">· Make more</span></td>
           <td class="num">373 596</td><td class="num">296 519</td>
           <td class="num pos">−77 077</td><td class="subtle">Matka dostala o 77 tis. míň</td></tr>
@@ -495,7 +499,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <tr><td>Marketing <span class="subtle">· interní fakturace Media</span></td>
           <td class="num">600 000</td><td class="num">600 000</td>
           <td class="subtle">Fakturováno podle plánu, ne podle reality</td></tr>
-        <tr><td>Mzdy koordinace</td><td class="num">370 300</td><td class="num">437 444</td>
+        <tr><td>Mzdy koordinace</td><td class="num">370 300</td><td class="num">437 969</td>
           <td class="subtle">Přes plán o 67 144</td></tr>
         <tr><td>Spotřební materiál</td><td class="num">209 600</td><td class="num">147 775</td>
           <td class="subtle">Nedočerpáno o 61 825</td></tr>
@@ -507,7 +511,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <tr><td>Školení lektorů</td><td class="num">1 000</td><td class="num">9 900</td>
           <td class="neg">Položka nebyla myšlená vážně</td></tr>
         <tr class="grand"><td><a class="ext" href="https://app.ludone.cz/rozpocty/makeeducation-cz/tabory-celorocni-2026" target="_blank" rel="noopener">Tábory celoroční<span class="ext-ico" aria-hidden="true"> ↗</span></a></td><td class="num">1 313 500</td>
-          <td class="num">1 338 209</td><td class="subtle">Příjem 0 — je to nákladové středisko</td></tr>
+          <td class="num">1 338 734</td><td class="subtle">Příjem 0 — je to nákladové středisko</td></tr>
       </tbody>
     </table>
   </div>
@@ -568,7 +572,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
       </tbody>
     </table>
   </div>
-  <figcaption>Ceny jsou ze SimpleShopu včetně DPH (u táborů nulová). Storna: 19 objednávek
+  <figcaption>Místa a obědy jsou ze SimpleShopu, tedy <strong>před slevami</strong> — v LuDone je gastro po slevách 274 280 Kč. DPH je u táborů nulová. Storna: 19 objednávek
   za 104 810 Kč. Sloupec plnění porovnává tržbu s rozpočtem lokace.</figcaption>
 </section>
 
@@ -705,16 +709,16 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
       <tbody>
         <tr><td>Příjmy</td><td class="num">3 735 960</td><td class="num">2 965 186</td>
           <td class="num neg">79 %</td><td class="subtle">Faktury + platby z účtu bez faktury</td></tr>
-        <tr><td>Náklady</td><td class="num">3 345 015</td><td class="num">2 766 162</td>
+        <tr><td>Náklady</td><td class="num">3 345 015</td><td class="num">2 766 687</td>
           <td class="num">83 %</td><td class="subtle">Včetně mezd a odvodů</td></tr>
-        <tr class="sum"><td>Bilance</td><td class="num">390 945</td><td class="num">199 024</td>
+        <tr class="sum"><td>Bilance</td><td class="num">390 945</td><td class="num">198 499</td>
           <td class="num neg">51 %</td><td class="subtle">Rozpočtová × reálná</td></tr>
-        <tr><td>Náklad na dítě</td><td class="num">6 149</td><td class="num">6 570</td>
+        <tr><td>Náklad na dítě</td><td class="num">6 149</td><td class="num">6 572</td>
           <td class="num neg">107 %</td><td class="subtle">Náklady ÷ místa</td></tr>
-        <tr><td>Zisk na dítě</td><td class="num">719</td><td class="num">473</td>
-          <td class="num neg">66 %</td><td class="subtle">Bilance ÷ místa — <strong>před dopočtem</strong>, po něm ≈ 37 Kč</td></tr>
+        <tr><td>Zisk na dítě</td><td class="num">719</td><td class="num">471</td>
+          <td class="num neg">66 %</td><td class="subtle">Bilance ÷ místa — <strong>před dopočtem</strong>, po něm ≈ 3 Kč</td></tr>
         <tr><td>Marže</td><td class="num">10,5 %</td><td class="num">6,7 %</td>
-          <td class="num neg">−3,8 b.</td><td class="subtle">Bilance ÷ příjmy — <strong>před dopočtem</strong>, po něm 0,5 %</td></tr>
+          <td class="num neg">−3,8 b.</td><td class="subtle">Bilance ÷ příjmy — <strong>před dopočtem</strong>, po něm 0,04 %</td></tr>
       </tbody>
     </table>
   </div>
@@ -769,8 +773,8 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <tr><td>Akvizice <span class="subtle">· marketing</span></td><td class="num">600 000</td>
           <td class="num">1 425</td><td class="num">20,2 %</td>
           <td class="subtle">Získání zákazníka — ne režie</td></tr>
-        <tr><td>Koordinace <span class="subtle">· mzdy příprav</span></td><td class="num">437 444</td>
-          <td class="num">1 039</td><td class="num">14,8 %</td>
+        <tr><td>Koordinace <span class="subtle">· mzdy příprav</span></td><td class="num">437 969</td>
+          <td class="num">1 041</td><td class="num">14,8 %</td>
           <td class="subtle">Přípravné práce před sezónou</td></tr>
         <tr><td>Programový materiál</td><td class="num">151 566</td>
           <td class="num">361</td><td class="num">5,1 %</td>
@@ -784,8 +788,8 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <tr><td>Rozvoj lektorů <span class="subtle">· školení</span></td><td class="num">9 900</td>
           <td class="num">24</td><td class="num">0,3 %</td>
           <td class="subtle">Investice do týmu</td></tr>
-        <tr class="grand"><td>Celkem</td><td class="num">1 338 209</td>
-          <td class="num">3 179</td><td class="num">45,1 %</td>
+        <tr class="grand"><td>Celkem</td><td class="num">1 338 734</td>
+          <td class="num">3 180</td><td class="num">45,1 %</td>
           <td class="subtle">Z toho skutečná režie je málo</td></tr>
       </tbody>
     </table>
@@ -827,9 +831,11 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     </table>
   </div>
   <div class="notice">
-    <p><strong>Kontrola, která musí sedět:</strong> cena místa 5 967 − sdílené náklady 3 179
-    − přímý provoz 2 325 = <strong>463 Kč zisku na dítě</strong>. To odpovídá reálné bilanci
-    199 024 Kč rozpočítané na 421 dětí (473 Kč); rozdíl dělá dar NFSA a zaokrouhlení.</p>
+    <p><strong>Kontrola, která musí sedět:</strong> příjem na dítě 7 043 (2 965 186 ÷ 421) − sdílené náklady
+    3 180 − přímý provoz 2 325 − odvod 1 409 = <strong>129 Kč</strong>. Zbytek do reálné
+    bilance 471 Kč na dítě tvoří položky, které se v přepočtu nevyrušily — hlavně mzdy
+    Robotáboru a rezervy. <strong>Základny musí být stejné</strong>: příjem na dítě, ne cena
+    místa, jinak identita nesedí.</p>
   </div>
 </section>
 
@@ -876,10 +882,10 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
         <tr><td>Cena za místo</td><td class="num">5 842</td><td class="num">5 967</td>
           <td class="num">+2 %</td><td class="subtle">Objem rostl, cena skoro ne</td></tr>
         <tr><td><strong>Zisk na dítě</strong></td><td class="num neg">−188</td>
-          <td class="num pos">+37</td><td class="num pos">obrat</td>
+          <td class="num pos">+3</td><td class="num pos">obrat</td>
           <td class="subtle">Oba roky po dopočtu — srovnatelné</td></tr>
-        <tr><td>Marže</td><td class="num neg">−3,2 %</td><td class="num pos">0,5 %</td>
-          <td class="num pos">+3,7 b.</td><td class="subtle">Ze ztráty do zisku, ale těsně</td></tr>
+        <tr><td>Marže</td><td class="num neg">−3,2 %</td><td class="num pos">0,04 %</td>
+          <td class="num pos">+3,2 b.</td><td class="subtle">Ze ztráty do zisku, ale těsně</td></tr>
       </tbody>
     </table>
   </div>
@@ -887,8 +893,8 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
     <p><strong>Tábory se za rok víc než ztrojnásobily a poprvé vydělaly.</strong> Objem vzrostl
     o 137 %, cena za místo přitom jen o 2 % — růst tedy nepřišel ze zdražení, ale z počtu dětí.</p>
     <p><strong>Zisk je ale těsný.</strong> Loni tábory na každém dítěti ztrácely 188 Kč, letos
-    vydělají zhruba 37 Kč. Účetní stav k dnešku ukazuje 473 Kč na dítě, jenže v něm ještě
-    nejsou nájmy, strava ani BTL faktura — po jejich dopočtu zbude právě těch 37 Kč.
+    vydělají zhruba 3 Kč. Účetní stav ukazuje 471 Kč na dítě, jenže v něm ještě nejsou nájmy ani strava —
+    a BTL faktura si s sebou přinese vlastní odvod. Po dopočtu zbudou právě ty 3 Kč.
     <strong>Sezóna skončí kolem nuly, ne v zisku.</strong></p>
     <p>Proti cíli z business plánu — <strong>650 dětí a 4,2 mil.</strong> — je to ale jen 65 %,
     respektive 71 %. Ambice byla vyšší než kapacita, kterou se podařilo naplnit.</p>
@@ -1045,7 +1051,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
 <script>
 (function(){
   "use strict";
-  var BASE = 199024;
+  var BASE = 198499;
 
   // kategorie -> lokace. plan/real z LuDone, "navrh" = doporuceny dopocet
   var CATS = [
@@ -1157,7 +1163,8 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
 
   function costs(){var t=0; CATS.forEach(function(c){ if(!c.income) t+=catSum(c.key); }); return t;}
   function incomes(){var t=0; CATS.forEach(function(c){ if(c.income) t+=catSum(c.key); }); return t;}
-  function result(){ return BASE - costs() + incomes(); }
+  function odvodZDofakturace(){ return incomes() * 0.20; }  // 10 % matka + 10 % firma
+  function result(){ return BASE - costs() + incomes() - odvodZDofakturace(); }
 
   function renderCostTable(){
     var tb = document.getElementById("costTable");
@@ -1193,6 +1200,7 @@ footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--color-border)
       {l:"Dnes",     d:0,         t:"mid"},
       {l:"Doklady",  d:-costs(),  t:"s"},
       {l:"Dojde",    d:incomes(), t:"s"},
+      {l:"Odvod z ní", d:-odvodZDofakturace(), t:"s"},
       {l:"Výsledek", d:0,         t:"end"}
     ];
     var run=0, bars=[];
