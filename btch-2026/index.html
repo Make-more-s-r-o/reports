@@ -87,7 +87,11 @@ p{max-width:74ch}
 
 .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--color-border);
   background:var(--color-surface-elevated)}
-@media (max-width:640px){.kpi-grid{grid-template-columns:1fr}
+.kpi-grid.four{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.kpi-grid.four{grid-template-columns:repeat(2,1fr)}
+  .kpi-grid.four .kpi{border-bottom:1px solid var(--color-border)}
+  .kpi-grid.four .kpi:nth-child(2n){border-right:none}}
+@media (max-width:640px){.kpi-grid,.kpi-grid.four{grid-template-columns:1fr}
   .kpi{border-right:none!important;border-bottom:1px solid var(--color-border)}}
 .kpi{padding:15px 16px;border-right:1px solid var(--color-border)}
 .kpi:last-child{border-right:none;border-bottom:none}
@@ -147,24 +151,30 @@ tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
 </header>
 
 <section>
-  <h2>Tři čísla</h2>
+  <h2>Čtyři čísla</h2>
   <p class="sub">Projekt běží do 14. července 2027. LEGO zaplatilo celou částku dopředu,
      výdaje se ale rozkládají do dvou sezón — proto je přijato skoro všechno a utraceno teprve třetina.</p>
-  <div class="kpi-grid">
+  <div class="kpi-grid four">
     <div class="kpi">
       <div class="label">Přišlo do projektu</div>
       <div class="value">4 171 318</div>
       <div class="hint">100,1 % plánu (4 168 110). Jediný zdroj: LEGO.</div>
     </div>
-    <div class="kpi is-primary">
+    <div class="kpi">
       <div class="label">Utraceno k 1. 9. 2026</div>
       <div class="value">1 612 541</div>
       <div class="hint">35,8 % plánovaných nákladů. Včetně odvodů a mezd.</div>
     </div>
     <div class="kpi">
-      <div class="label">Zbývá z rozpočtu</div>
+      <div class="label">Zbývá v rozpočtu</div>
       <div class="value">2 891 889</div>
       <div class="hint">Naplánováno na zbytek 2026 a na sezónu 2027.</div>
+    </div>
+    <div class="kpi is-primary">
+      <div class="label">K rozdělení na aktivity</div>
+      <div class="value">2 598 302</div>
+      <div class="hint">Po odečtení práce Matěje, která je do konce projektu daná.
+        Podle peněz, které skutečně přišly, je to 2 265 190 — viz výpočet níž.</div>
     </div>
   </div>
   <div class="note accent">
@@ -222,23 +232,23 @@ tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
   <div class="tw">
   <table>
     <thead>
-      <tr><th>Nákladová skupina</th><th class="num">Vyčerpáno</th><th class="num">Plán</th><th class="num">Čerpání</th></tr>
+      <tr><th>Nákladová skupina</th><th class="num">Plán</th><th class="num">Vyčerpáno</th><th class="num">Čerpání</th></tr>
     </thead>
     <tbody>
-      <tr><td>Odvody (matka + firma)</td><td class="num">750 837</td><td class="num">750 260</td><td class="num">100 %</td></tr>
-      <tr><td>Workshopy ve škole</td><td class="num">118 712</td><td class="num">705 601</td><td class="num">17 %</td></tr>
+      <tr><td>Odvody (matka + firma)</td><td class="num">750 260</td><td class="num">750 837</td><td class="num">100 %</td></tr>
+      <tr><td>Workshopy ve škole</td><td class="num">705 601</td><td class="num">118 712</td><td class="num">17 %</td></tr>
       <tr><td>Interní fakturace — vývoj webu, příprava, grafika, textace <span class="tag new">Nové</span></td><td class="num">80 950</td><td class="num">80 950</td><td class="num">100 %</td></tr>
-      <tr><td>Program — lektoři a materiál na akcích</td><td class="num">80 447</td><td class="num">70 706</td><td class="num neg">114 %</td></tr>
-      <tr><td>Plechárna — interní fakturace Make Events</td><td class="num">52 888</td><td class="num">45 388</td><td class="num neg">117 %</td></tr>
-      <tr><td>Produkce — ubytování, doprava, diety, expozice</td><td class="num">46 649</td><td class="num">96 650</td><td class="num">48 %</td></tr>
-      <tr><td>Marketing a PR</td><td class="num">38 659</td><td class="num">363 000</td><td class="num">11 %</td></tr>
+      <tr><td>Program — lektoři a materiál na akcích</td><td class="num">70 706</td><td class="num">80 447</td><td class="num neg">114 %</td></tr>
+      <tr><td>Plechárna — interní fakturace Make Events</td><td class="num">45 388</td><td class="num">52 888</td><td class="num neg">117 %</td></tr>
+      <tr><td>Produkce — ubytování, doprava, diety, expozice</td><td class="num">96 650</td><td class="num">46 649</td><td class="num">48 %</td></tr>
+      <tr><td>Marketing a PR</td><td class="num">363 000</td><td class="num">38 659</td><td class="num">11 %</td></tr>
       <tr><td>Kladno — interní fakturace Make Events</td><td class="num">18 696</td><td class="num">18 696</td><td class="num">100 %</td></tr>
       <tr><td>Karviná — interní fakturace Make Events</td><td class="num">15 996</td><td class="num">15 996</td><td class="num">100 %</td></tr>
       <tr><td>Nájem za akce</td><td class="num">15 000</td><td class="num">15 000</td><td class="num">100 %</td></tr>
-      <tr class="zero"><td>Festivaly 1–8 <span class="tag wait">Teprve budou</span></td><td class="num">0</td><td class="num">1 124 210</td><td class="num">0 %</td></tr>
-      <tr class="zero"><td>Workshopy v tělocvičně <span class="tag wait">Teprve budou</span></td><td class="num">0</td><td class="num">389 001</td><td class="num">0 %</td></tr>
-      <tr class="zero"><td>Rezerva</td><td class="num">0</td><td class="num">2</td><td class="num">0 %</td></tr>
-      <tr class="sum"><td>Náklady bez mezd</td><td class="num">1 218 834</td><td class="num">3 675 460</td><td class="num">33 %</td></tr>
+      <tr class="zero"><td>Festivaly 1–8 <span class="tag wait">Teprve budou</span></td><td class="num">1 124 210</td><td class="num">0</td><td class="num">0 %</td></tr>
+      <tr class="zero"><td>Workshopy v tělocvičně <span class="tag wait">Teprve budou</span></td><td class="num">389 001</td><td class="num">0</td><td class="num">0 %</td></tr>
+      <tr class="zero"><td>Rezerva</td><td class="num">2</td><td class="num">0</td><td class="num">0 %</td></tr>
+      <tr class="sum"><td>Náklady bez mezd</td><td class="num">3 675 460</td><td class="num">1 218 834</td><td class="num">33 %</td></tr>
     </tbody>
   </table>
   </div>
@@ -259,6 +269,11 @@ tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
     a Plechárna o 7 500 Kč. Malé částky, ale rozpočet je u nich vyčerpaný — další výdaj
     už nemá krytí.
   </div>
+  <div class="note">
+    <strong>Marketing má novou dohodu na 320 000 Kč</strong>, z toho je zatím vyfakturováno 20 000.
+    V rozpočtu projektu ale pořád stojí původních 350 000. Až se částka potvrdí, musí se
+    rozpočet marketingu srovnat — rozdíl je 30 000 Kč, na celkovém obrázku nic nemění.
+  </div>
 </section>
 
 <section>
@@ -274,8 +289,8 @@ tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
     </div>
     <div class="kpi">
       <div class="label">Vykázané hodiny</div>
-      <div class="value">1 234,5</div>
-      <div class="hint">z 2 349 alokovaných</div>
+      <div class="value">1 234,6</div>
+      <div class="hint">z 2 349 alokovaných (53 %)</div>
     </div>
     <div class="kpi">
       <div class="label">Zbývá mzdového rozpočtu</div>
@@ -284,39 +299,31 @@ tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
     </div>
   </div>
 
-  <h3>Kdo je na projektu alokovaný</h3>
+  <h3>Kdo na projektu pracoval</h3>
   <div class="tw">
   <table>
     <thead>
-      <tr><th>Člověk</th><th>Alokační období</th><th class="num">Alokováno h</th><th class="num">Vykázáno h</th></tr>
+      <tr><th>Člověk</th><th>Alokační období</th><th class="num">Alokováno h</th><th class="num">Vykázáno h</th><th class="num">Využito</th></tr>
     </thead>
     <tbody>
-      <tr><td>Pavel Šrytr</td><td>1. 1. – 31. 12. 2026</td><td class="num">480</td><td class="num">0</td></tr>
-      <tr><td>Matěj Čermák</td><td>20. 6. – 30. 9. 2026</td><td class="num">245</td><td class="num">0</td></tr>
-      <tr><td>Matěj Čermák</td><td>1. 10. – 31. 12. 2026</td><td class="num">218</td><td class="num">0</td></tr>
-      <tr><td>Matěj Čermák</td><td>1. 1. – 29. 6. 2027</td><td class="num">384</td><td class="num">173,2</td></tr>
-      <tr><td>Lenka Karpíšková</td><td>1. 1. – 30. 6. 2026</td><td class="num">339</td><td class="num">0</td></tr>
-      <tr><td>Lenka Karpíšková</td><td>1. 7. – 31. 12. 2026</td><td class="num">161</td><td class="num">0</td></tr>
-      <tr><td>Klárka Fichnová</td><td>1. 1. – 30. 6. 2026</td><td class="num">228</td><td class="num">0</td></tr>
-      <tr><td>Klárka Fichnová</td><td>1. 7. – 31. 12. 2026</td><td class="num">234</td><td class="num">0</td></tr>
-      <tr><td>Eliška Kundrátová</td><td>1. 1. – 30. 6. 2026</td><td class="num">32</td><td class="num">0</td></tr>
-      <tr><td>Eliška Kundrátová</td><td>1. 7. – 31. 12. 2026</td><td class="num">28</td><td class="num">0</td></tr>
-      <tr class="indent"><td>Hodiny mimo všechna alokační období</td><td>—</td><td class="num">—</td><td class="num">1 061,3</td></tr>
-      <tr class="sum"><td>Celkem</td><td>2026 – 6/2027</td><td class="num">2 349</td><td class="num">1 234,5</td></tr>
+      <tr><td>Pavel Šrytr</td><td>celý rok 2026</td><td class="num">480</td><td class="num">381,3</td><td class="num">79 %</td></tr>
+      <tr><td>Lenka Karpíšková</td><td>2026, dvě pololetí</td><td class="num">500</td><td class="num">373,8</td><td class="num">75 %</td></tr>
+      <tr><td>Klárka Fichnová</td><td>2026, dvě pololetí</td><td class="num">462</td><td class="num">270,7</td><td class="num">59 %</td></tr>
+      <tr><td>Matěj Čermák</td><td>od 20. 6. 2026 do 29. 6. 2027</td><td class="num">847</td><td class="num">173,2</td><td class="num">20 %</td></tr>
+      <tr><td>Eliška Kundrátová</td><td>od 1. 2. do 31. 12. 2026</td><td class="num">60</td><td class="num">35,5</td><td class="num">59 %</td></tr>
+      <tr class="sum"><td>Celkem</td><td>1/2026 – 6/2027</td><td class="num">2 349</td><td class="num">1 234,6</td><td class="num">53 %</td></tr>
     </tbody>
   </table>
   </div>
 
-  <div class="note warn">
-    <strong>Hodiny nesedí na alokace.</strong> Z 1 234,5 vykázaných hodin padá do některého
-    alokačního období jen 173,2. Zbylých 1 061,3 hodin je vykázáno v měsících, které nespadají
-    pod žádnou alokaci. Mzdový náklad 393 707 Kč je skutečný a je v číslech započítaný,
-    ale <strong>nedá se rozpadnout na lidi a období</strong>. Než se to srovná, ber rozpad
-    po lidech jako orientační.
+  <div class="note">
+    Vykázané hodiny jsou skutečné výkazy z ledna až srpna 2026. <strong>Matějovo nízké
+    využití není podvýkon</strong> — jeho alokace pokrývá období až do června 2027, takže
+    má před sebou většinu rozsahu. U ostatních končí alokace koncem roku 2026.
   </div>
   <div class="note">
-    Částky u jednotlivých lidí tento report záměrně neuvádí — mzdy jednotlivců zůstávají
-    v LuDone pod přístupovými právy.
+    Částky u jednotlivých lidí report záměrně neuvádí — mzdy jednotlivců zůstávají
+    v LuDone pod přístupovými právy. Uvedený je jen součet za tým.
   </div>
 </section>
 
@@ -325,21 +332,60 @@ tr.indent td:first-child{padding-left:24px;color:var(--color-on-surface-muted)}
   <div class="tw">
   <table>
     <thead>
-      <tr><th>Vrstva</th><th class="num">Utraceno</th><th class="num">Plán</th><th class="num">Zbývá</th></tr>
+      <tr><th>Vrstva</th><th class="num">Plán</th><th class="num">Utraceno</th><th class="num">Zbývá</th></tr>
     </thead>
     <tbody>
-      <tr><td>Provozní náklady</td><td class="num">467 997</td><td class="num">2 925 200</td><td class="num">2 457 203</td></tr>
-      <tr><td>Odvody</td><td class="num">750 837</td><td class="num">750 260</td><td class="num neg">−577</td></tr>
-      <tr><td>Mzdy</td><td class="num">393 707</td><td class="num">828 970</td><td class="num">435 263</td></tr>
-      <tr class="grand"><td>Celkem</td><td class="num">1 612 541</td><td class="num">4 504 430</td><td class="num">2 891 889</td></tr>
+      <tr><td>Provozní náklady</td><td class="num">2 925 200</td><td class="num">467 997</td><td class="num">2 457 203</td></tr>
+      <tr><td>Odvody</td><td class="num">750 260</td><td class="num">750 837</td><td class="num neg">−577</td></tr>
+      <tr><td>Mzdy</td><td class="num">828 970</td><td class="num">393 707</td><td class="num">435 263</td></tr>
+      <tr class="grand"><td>Celkem</td><td class="num">4 504 430</td><td class="num">1 612 541</td><td class="num">2 891 889</td></tr>
     </tbody>
   </table>
   </div>
-  <p style="margin-top:14px">
-    Z peněz, které od LEGO přišly, je <strong>k 1. 9. 2026 utraceno 1 612 541 Kč</strong>
-    a nevyčerpáno zůstává <strong>2 558 777 Kč</strong>. Rozpočet ale počítá s výdaji
-    za 2 891 889 Kč — o 333 tisíc víc, než kolik na účtu z projektu zbývá.
-  </p>
+</section>
+
+<section>
+  <h2>5 · Kolik zbývá rozdělit na aktivity</h2>
+  <p class="sub">Ne všechno, co zbývá, je volné. Práce interního týmu je náklad, který
+     vznikne tak jako tak — teprve zbytek se dá rozdělovat mezi festivaly, workshopy
+     a další aktivity.</p>
+
+  <div class="tw">
+  <table>
+    <thead>
+      <tr><th>Výpočet</th><th class="num">Kč</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Přišlo od LEGO</td><td class="num">4 171 318</td></tr>
+      <tr class="indent"><td>− odvody, které už odešly</td><td class="num">−750 837</td></tr>
+      <tr class="indent"><td>− provozní náklady, které se už vyčerpaly</td><td class="num">−467 997</td></tr>
+      <tr class="indent"><td>− mzdy vykázané k 1. 9. 2026</td><td class="num">−393 707</td></tr>
+      <tr class="sum"><td>Nevyčerpáno z přijatých peněz</td><td class="num">2 558 777</td></tr>
+      <tr class="indent"><td>− práce Matěje do konce projektu (zbytek alokace)</td><td class="num">−293 587</td></tr>
+      <tr class="grand"><td>Zbývá rozdělit na aktivity</td><td class="num">2 265 190</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note">
+    <strong>Podle rozpočtu vychází číslo vyšší: 2 598 302 Kč.</strong> Rozpočet totiž
+    počítá s výdaji za 4 504 430 Kč, zatímco přišlo 4 171 318 Kč — je tedy naplánováno
+    o <strong>333 112 Kč víc, než na kolik jsou peníze</strong>. Podle rozpočtu zbývá
+    2 891 889 Kč, po odečtení Matěje 2 598 302 Kč; podle skutečných peněz je to
+    2 265 190 Kč. Rozdíl mezi oběma čísly je přesně ten přeplánovaný rozpočet.
+  </div>
+  <div class="note accent">
+    <strong>Proč se odečítá zrovna Matěj.</strong> Má alokaci 847 hodin až do 29. 6. 2027
+    a odpracoval z nich zatím 173,2. Zbývající část je náklad, o kterém je rozhodnuto —
+    nedá se přesunout na akce pro děti. Ostatním končí alokace koncem roku 2026 a jejich
+    nevyčerpaný strop (dalších 141 676 Kč) tady odečtený není; kdyby se odečetl také,
+    zbývalo by k rozdělení 2 456 626 Kč podle rozpočtu.
+  </div>
+  <div class="note">
+    Tenhle postup vychází ze schůzky k rozpočtům Build the Change z 18. 8. 2026:
+    nejdřív určit náklady interního týmu EDU, teprve pak je zřejmé, kolik prostředků
+    zbývá na externí aktivity.
+  </div>
 </section>
 
 <section>
